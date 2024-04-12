@@ -1,10 +1,14 @@
-const botao = document.getElementById("botao");
+const buton = document.querySelector("[button-hamburgier]");
+const navbar = document.getElementById  ("navbarSupportedContent");
+buton.addEventListener("click", ajustandoBotaoHamburgues)
 
-botao.addEventListener("mouseenter", function() {
-    botao.style.left = Math.floor(Math.random() * 100) + "px";
-    botao.style.top = Math.floor(Math.random() * 100) + "px";
-});
-botao.addEventListener("click", function() {
-    botao.style.left = Math.floor(Math.random() * 100) + "px";
-    botao.style.top = Math.floor(Math.random() * 100) + "px";
-});
+function ajustandoBotaoHamburgues(){
+    if(navbar.classList.contains("d-flex") || buton ==null){
+        setTimeout(() => {
+            navbar.classList.remove("d-flex");
+        }, 300);
+    }
+    else{
+        navbar.classList.add("d-flex");
+    }
+}

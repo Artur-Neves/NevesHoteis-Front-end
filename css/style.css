@@ -1,3 +1,69 @@
+:root{
+    --cinza-claro: #A4907C;
+    --bege-claro-font: #F1DEC9;
+}
+a{
+    text-decoration:none ;
+}
+body{
+    height: 150vh;
+    width: 100vw;
+}
 #botao{
+    position: absolute;
+}
+.nav__logo{
+    height: 50px;
+    overflow: hidden;
+}
+.nav__logo-img{
+    top: -36px;
     position: relative;
+}
+.offcanvas{
+    background-color: var(--cinza-claro);
+}
+.offcanvas__link{
+    padding-left: 20px;
+    width: 100%;
+    color: var(--bege-claro-font);
+    text-decoration: none;
+    background-color: var(--cinza-claro);
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
+}
+.offcanvas__link:hover{
+    color: gray;
+    background-color: white;
+}
+.footer{
+    background-color: var(--cinza-claro);
+    color: #F1DEC9;
+}
+.banners{
+    width: 100%;
+    height: 60vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;    
+}
+.banner-1{
+    background-image: url(../assets/img/Designer.jpeg);
+}
+.banner-titulo{
+    background-color: rgb(255, 247, 233, 0.4) ;
+}
+.cards__font-pequena{
+    font-size: 0.8rem;
+}
+
+
+
+@media screen and (max-width: 992px) {
+ 
 }
