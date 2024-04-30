@@ -6,12 +6,13 @@ a{
     text-decoration:none ;
 }
 body{
-    height: 150vh;
-    width: 100vw;
+    height: 100vh;
+    width:  100%;
 }
 #botao{
     position: absolute;
 }
+
 .nav__logo{
     height: 50px;
     overflow: hidden;
@@ -60,6 +61,13 @@ body{
 }
 .cards__font-pequena{
     font-size: 0.8rem;
+}
+
+.row{
+    display: flex;
+}
+.swiper{
+    width: 90%;
 }
 
 
