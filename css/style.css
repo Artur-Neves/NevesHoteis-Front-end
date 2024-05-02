@@ -70,8 +70,24 @@ body{
     width: 90%;
 }
 
-
+.desconto_porcentagem{
+    font-size: 0.9rem;
+    width:25% !important;
+    font-weight: bold;
+}
+.card-destino{
+    height: min-content;
+}
 
 @media screen and (max-width: 992px) {
- 
+    .desconto_porcentagem{
+        font-size: 0.85rem;
+        width:30% !important;
+    }
+}
+@media screen and (max-width: 576px) {
+    .desconto_porcentagem{
+        font-size: 0.75rem;
+        width:35% !important;
+    }
 }
