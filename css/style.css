@@ -1,4 +1,7 @@
+@import url("/css/login.css");
 :root{
+    --primary-color: aqua;
+    --secundary-color: rgb(6, 109, 109);
     --cinza-claro: #A4907C;
     --bege-claro-font: #F1DEC9;
 }
