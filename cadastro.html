@@ -19,16 +19,23 @@
 <body>
     
         <section class=" w-100 h-100 d-flex justify-content-center align-items-center">
-        <form action="#" class="rounded-2 px-4 mx-5 formulario needs-validation" login novalidate>
-            <h2 class="display-3 text-center m-3 py-3 ">Login</h2>
+        <form action="#" class="rounded-2 px-4 mx-5 formulario needs-validation" o novalidate>
+            <h2 class="display-3 text-center m-3 py-3 ">Cadastro</h2>
             <div class="alert alert-danger d-none " role="alert">Erro simples</div>
                 <div class="flex-nowrap input-group mt-3" campo-div>
-                <span class="input-group-text" id="addon-wrapping"><i class="bi bi-envelope-fill"></i></span>
-                <input type="email" class="form-control was-validated" placeholder="@email.com" aria-label="Email" aria-describedby="addon-wrapping"  autocomplete="email" required campo email>
+                <span class="input-group-text" id="addon-wrapping"><i class="bi bi-person"></i></span>
+                <input type="text" class="form-control was-validated" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" autocomplete="username" minlength="3" required campo username>
                </div>
                 <div class="invalid-feedback">
-                  Digite um email válido           
+                  Digite um username com pelo menos 3 caracteres         
               </div>
+              <div class="flex-nowrap input-group mt-3" campo-div>
+                <span class="input-group-text" id="addon-wrapping"><i class="bi bi-envelope-fill"></i></span>
+                <input type="email" class="form-control was-validated" placeholder="@email.com" aria-label="email" autocomplete="email" aria-describedby="addon-wrapping" required campo email>
+               </div>
+               <div class="invalid-feedback">
+                Digite um email válido           
+            </div>
               <div class="input-group flex-nowrap mt-3" campo-div>
                 <span class="input-group-text" id="inputGroup-sizing-lg"><i class="bi bi-lock-fill"></i></span>
                 <input type="password" class="rounded-2 border border-1 w-100 ps-3" placeholder="Password" aria-label="password" aria-describedby="addon-wrapping" autocomplete="current-password" required minlength="8" maxlength="24" campo senha>
@@ -43,9 +50,8 @@
                 </ul>
             </div>
               
-              <a href="#" class=" d-flex justify-content-end mt-2">Esqueceu a senha?</a>
-              <input type="submit" class="btn btn-entrar w-100 mb-3 mt-4" value="Entrar"/>
-              <p>Não tem uma conta? <a href="./cadastro.html">Cadastre-se</a></p>
+              <input type="submit" class="btn btn-entrar w-100 mb-3 mt-4" value="Cadastrar-se"/>
+              <p>Já possui uma conta? faça <a href="./login.html">login</a></p>
 
         </form>
     </section>

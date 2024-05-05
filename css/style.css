@@ -1,4 +1,5 @@
-@import url("/css/login.css");
+@import url("./login.css");
+@import url("./cadastro.css");
 :root{
     --primary-color: aqua;
     --secundary-color: rgb(6, 109, 109);
