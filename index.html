@@ -33,94 +33,8 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <header>
-      <nav class="navbar w-100 navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <h1 class="nav__logo">
-              <img
-                class="nav__logo-img"
-                src="assets/img/Logo_Original-Cortado-Tamanho-Pequeno.png"
-                alt="Logo do site"
-              />
-            </h1>
-          </a>
-          <div class="nav-item d-flex gap-3 text-center">
-            <a
-              class="nav-link fs-1 d-lg-none"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasRight"
-              aria-controls="offcanvasRight"
-              href="#"
-              ><i class="bi bi-person-circle"></i
-            ></a>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-              button-hamburgier
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          </div>
-          <div
-            class="collapse navbar-collapse flex-column-reverse flex-lg-row"
-            id="navbarSupportedContent"
-          >
-            <form class="d-flex ms-auto w-75" role="search">
-              <div class="input-group">
-                <input
-                  class="form-control"
-                  type="search"
-                  placeholder="Busque pelo nome do Hotel"
-                  aria-label="Search"
-                />
-                <button class="btn btn-outline-info" type="submit">
-                  <i class="bi bi-search"></i>
-                </button>
-              </div>
-            </form>
-            <ul class="navbar-nav ms-auto me-3 mb-2 mb-lg-0">
-              <li class="nav-item py-lg-3">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item py-lg-3 dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Minha conta
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Meus agendamentos</a></li>
-                  <li><a class="dropdown-item" href="#"></a></li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item py-lg-2 d-none d-lg-flex">
-                <a
-                  class="nav-link fs-3 mx-2"
-                  data-bs-toggle="offcanvas"
-                  data-bs-target="#offcanvasRight"
-                  aria-controls="offcanvasRight"
-                  href="#"
-                  ><i class="bi bi-person-circle"></i
-                ></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+    <header id="headerContainer">
+      
     </header>
     <main>
       <section class="Banner"
@@ -615,31 +529,29 @@
           ></button>
         </div>
         <div class="offcanvas-body px-1 d-flex flex-column">
-          <a href="./login.html" class="offcanvas__link">Login</a>
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header align-items-center text-start ">
+                <button class="accordion-button collapsed offcanvas__link d-flex border border-danger flex-row m-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Minha conta
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body p-0">
+                  <ul class="menu__list ps-0 m-0  ">
+                    <li class="menu__list-item "><a href="" class="menu__list-link  offcanvas__link-item">Conta</a></li>
+                    <li class="menu__list-item"><a href="" class="menu__list-link  offcanvas__link-item">Meus agendamentos</a></li>
+                    <li class="menu__list-item"><a href="" class="menu__list-link  offcanvas__link-item m-0">Itens salvos</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
           <a href="./cadastro.html" class="offcanvas__link">Cadastrar-se</a>
         </div>
       </div>
     </section>
-    <footer class="footer">
-      <ul class="d-flex justify-content-center gap-5 py-2">
-        <li>
-          <a href="mailto:nevesdev.ti@gmail.com" class="btn"><i class="bi bi-envelope fs-1"></i></a>
-        </li>
-        <li>
-          <a href="https://github.com/Artur-Neves" class="btn"
-            ><i class="bi bi-github text-dark fs-1"></i
-          ></a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/artur-neves-ba033a257" class="btn"
-            ><i class="bi bi-linkedin text-dark fs-1"></i
-          ></a>
-        </li>
-      </ul>
-      <p class="pb-3 text-center">
-        2024 <i class="bi bi-c-circle"></i> Desenvolvido por Artur Neves |
-        Projeto fictício sem fins comerciais.
-      </p>
+    <footer id="footerContainer">
     </footer>
 
     
@@ -677,6 +589,6 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script src="./JS/main.js"></script>
+    <script type="module" src="./JS/main.js"></script>
   </body>
 </html>

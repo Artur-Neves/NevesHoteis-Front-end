@@ -1,8 +1,6 @@
-
+@import url("./style.css");
 body{
-    background: url("/assets/img/fundo-login.jpeg") no-repeat;
-    background-position: center;
-    background-size: cover; 
+  height: 100vh !important;
 }
 .formulario{
 width: clamp(400px, 50%, 600px) !important;
