@@ -18,7 +18,7 @@ body{
     position: absolute;
 }
 .formulario-minhaConta{
-    width: clamp(400px, 80%, 1000px) !important;
+    width: clamp(300px, 80%, 1000px) !important;
     background-color: whitesmoke;
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
@@ -112,6 +112,19 @@ body{
 .accordion-body{
     background-color: var(--cinza-claro);
 }
+.olho{
+    position: absolute;
+    top: 1px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 1;
+}
+@media  screen and (min-width: 768px) {
+    [senha]::placeholder{
+   font-size: 1.3rem;
+    } 
+}
+
 
 @media screen and (max-width: 992px) {
     .desconto_porcentagem{

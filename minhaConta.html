@@ -37,7 +37,7 @@
     </header>
     <main class="w-100 h-auto">
         <section class="w-100  d-flex align-items-center flex-column gap-5 justify-content-evenly px-4 my-5">
-        <form class="border formulario formulario-minhaConta formularioPessoal rounded-2 p-3 Endereco my-3 needs-validation need-validation was-validated" novalidate>
+        <form class="border formulario formulario-minhaConta formularioPessoal rounded-2 p-3 Endereco my-3 needs-validation need-validation" novalidate>
             <div class="d-flex justify-content-between pe-3 pb-3">
             <h2>Dadaos pessoais</h2>
             <a href="#" lapis="Pessoal"><i class="bi bi-pencil fs-5"></i></a>
@@ -49,29 +49,31 @@
               <input type="email" class="form-control" id="inputEmail4"  minlength="3" maxlength="40" required disabled>
             </div>
             <div class="col-sm-6 col-12">
+              <div>
               <label for="inputUsername" class="form-label">Nome</label>
-              <input type="text" class="form-control" id="inputUsername" minlength="3" maxlength="40" required>
+              <input type="text" class="form-control" id="inputUsername" minlength="3" maxlength="40" required campo="username">
+            </div>
               <div class="invalid-feedback">
                 O nome deve conter ao menos 3 letras.          
             </div>
             </div>
             <div class="col-sm-6 col-12">
               <label for="inputData" class="form-label">Data de nascimento</label>
-              <input type="date" class="form-control" id="inputData" required>
+              <input type="date" class="form-control" id="inputData" required campo="data_de_nascimento">
               <div class="invalid-feedback">
                 Escolha uma data de nascimento válida         
             </div>
             </div>
             <div class="col-sm-6 col-12" >
               <label for="inputCPF" class="form-label">CPF</label>
-              <input type="text" class="form-control" id="inputCPF" minlength="11" maxlength="14" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
+              <input type="text" class="form-control" id="inputCPF" minlength="11" maxlength="14" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" campo="cpf" required>
               <div class="invalid-feedback">
                 Digite um CPF válido          
             </div>
             </div>
             <div class="col-sm-6 col-12">
               <label for="inputCity" class="form-label">Telefone</label>
-              <input type="tel" class="form-control" id="inputCity" minlength="10"  pattern="(\([0-9]{2}\))\s?([9]{1})?([0-9]{4})-?([0-9]{4})|([0-9]{11})" required>
+              <input type="tel" class="form-control" id="inputCity" minlength="10"  pattern="(\([0-9]{2}\))\s?([9]{1})?([0-9]{4})-?([0-9]{4})|([0-9]{11})"  required>
               <div class="invalid-feedback">
                 Digite um número válido         
             </div>
@@ -84,7 +86,7 @@
         </fieldset>
           </form>
 
-          <form class="border formulario formulario-minhaConta rounded-2 p-3 Endereco mt-3 mb-5 needs-validation need-validation was-validated formularioEndereco" novalidate>
+          <form class="border formulario formulario-minhaConta rounded-2 p-3 Endereco mt-3 mb-5 needs-validation need-validation formularioEndereco" novalidate>
             <div class="d-flex justify-content-between pe-3 pb-3">
             <h2>Dadaos Endereço</h2>
             <a href="#" lapis='Endereco'><i class="bi bi-pencil fs-5"></i></a>
@@ -93,7 +95,10 @@
             <fieldset class="row g-3 g-sm-5 fieldsetEndereco " >
             <div class="col-sm-6 col-12" >
               <label for="inputCep4" class="form-label">CEP</label>
-              <input type="number" class="form-control" id="inputCep" minlength="8" maxlength="8" required>
+              <input type="number" class="form-control" id="inputCep" minlength="8" maxlength="8" required campo="cep">
+              <div class="invalid-feedback">
+                Digite um número de CEP válido         
+            </div>
             </div>
            
             <div class="col-sm-6 col-12">
@@ -102,7 +107,7 @@
                 <option value="0" selected>Selecione o seu estado.</option>
               </select>
               <div class="invalid-feedback">
-                O nome deve conter ao menos 3 letras.       
+                Selecione um estado.       
             </div>
             </div>
             <div class="col-sm-6 col-12">
@@ -111,21 +116,21 @@
                 <option value="0" selected>Selecione a sua cidade</option>
               </select>
               <div class="invalid-feedback">
-                Escolha uma data de nascimento válida         
+                Selecione uma cidade.        
             </div>
           </div>
             <div class="col-sm-6 col-12">
               <label for="labelBairro" class="form-label">Bairro</label>
               <input type="text" class="form-control" id="inputBairro" required>
               <div class="invalid-feedback">
-                Lougadouro inválido         
+                Bairro não pode ficar vazio.         
             </div>
             </div>
             <div class="col-12" >
               <label for="inputLogadouro" class="form-label">Lougadouro</label>
               <input type="text" class="form-control" id="inputLogadouro"  required>
               <div class="invalid-feedback">
-                Lougadouro inválido         
+                Lougadouro não pode ficar vazio.         
             </div>
             </div>
             <div class="col-12 d-flex  justify-content-evenly p-2 " >

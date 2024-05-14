@@ -1,9 +1,9 @@
 @import url("./style.css");
 body{
-  height: 100vh !important;
+width: 100vw;
 }
 .formulario{
-width: clamp(400px, 50%, 600px) !important;
+width: clamp(300px, 50%, 600px) !important;
 background-color: whitesmoke;
 box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
