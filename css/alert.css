@@ -1,0 +1,20 @@
+@import url("./style.css");
+.formulario{
+width: clamp(300px, 60%, 700px) !important;
+background-color: whitesmoke;
+box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+.title-erro{
+    font-size: 2rem;
+    color: rgb(214, 6, 6); 
+}
+.text-erro{
+    font-size: 1.2rem;
+    text-align: justify;
+}
+body{
+    height: 100vh;
+    background: url("/assets/img/fundoVermelho.jpg") no-repeat;
+    background-position: center;
+    background-size: cover; 
+}

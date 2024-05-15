@@ -39,7 +39,7 @@
         <section class="w-100  d-flex align-items-center flex-column gap-5 justify-content-evenly  my-5">
         <form class="border formulario formulario-minhaConta formulario rounded-2 p-3 Endereco my-3 needs-validation " novalidate>
             <div class="d-flex justify-content-between pe-3 pb-3 mb-3">
-            <h2>Formulário Funcionário</h2>
+            <h2>Formulário Admin</h2>
             </div>
             <div id="liveAlertPlaceholder"></div>
             <div class="row g-3 g-sm-5 fieldsetPessoal" >
@@ -87,7 +87,7 @@
             </div>
             <div class="col-sm-6 col-12" >
               <label for="inputCPF" class="form-label">CPF</label>
-              <input type="text" class="form-control" id="inputCPF" minlength="11" maxlength="14" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required campo="cpf">
+              <input type="text" class="form-control" id="inputCPF" minlength="11" maxlength="14" pattern="(\d{3}\.\d{3}\.\d{3}-\d{2})|(\d{11})" required campo="cpf">
               <div class="invalid-feedback">
                 Digite um CPF válido          
             </div>
@@ -102,7 +102,7 @@
             
               <div class="col-sm-6 col-12" >
                 <label for="inputCep4" class="form-label">CEP</label>
-                <input type="number" class="form-control" id="inputCep" minlength="8" maxlength="8" required campo="cep">
+                <input type="text" class="form-control" id="inputCep" minlength="8" maxlength="9" required campo="cep">
                 <div class="invalid-feedback">
                   Digite um número de CEP válido         
               </div>
@@ -155,7 +155,7 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="./JS/formularioFuncionario.js"></script>
+    <script type="module" src="./JS/Formularios/formularioAdmin.js"></script>
   
   </body>
 </html>

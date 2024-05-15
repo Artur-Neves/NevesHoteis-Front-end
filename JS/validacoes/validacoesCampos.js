@@ -2,9 +2,7 @@ import {validarCPF} from "./validarCPF.js"
 import * as consultarEndereco from "/JS/APIs/consultarEndereco.js";
 const requisitosSenha =document.querySelectorAll(".requisito-senha-item");
 const olho = document.querySelector(".olho");
-const data_nascimento = document.querySelector("[campo='data_de_nascimento']");
 const select = document.querySelectorAll("select");
-data_nascimento.setAttribute("max", new Date());
 export let focus =true;
 // descobrir o campo
  export function verificarCampo(campo, focus){
@@ -27,12 +25,22 @@ export let focus =true;
         case "data_de_nascimento":
           verificarDataDeNascimento(campo);
         break;
+        case "data_de_nascimento":
+          verificarDataDeNascimento(campo);
+        break;
+        case "data_de_disponibilidade":
+          verificarDataDeDisponibilidade(campo);
+        break;
+        case "valor_diaria":
+          verificarValorDiaria(campo);
+        break;
+
       default:
         new console.error();
         break;
     }}
 // senha
-function verificarSenhaValido(campo) {
+export function verificarSenhaValido(campo) {
     const proximoElemento =  campo.parentElement.nextElementSibling;
     proximoElemento.style.display= "block";
          const valorCampo = campo.value;
@@ -94,25 +102,25 @@ function verificarSenhaValido(campo) {
 
   //Data de nascimento
   function verificarDataDeNascimento(campo){
-    console.log(new Date());
+    
     const hoje = new Date();
-    if (campo!=null){
-      if (new Date(campo.value)>hoje.setFullYear(hoje.getFullYear()-10)){
+    if (campo && new Date(campo.value)>hoje.setFullYear(hoje.getFullYear()-10)){
         campo.setCustomValidity("você tem que possuir pelo menos 10 anos para ter uma conta neste site ");
         return;
-      }
-      campo.setCustomValidity("");
     }
+      campo.setCustomValidity("");
+    
   }
   // CEP
   function verificarCEP(campo){
-    const value = campo.value;
+    let value = campo.value;
     if(value.includes("-", 0)){
       value = value.replace("-", "");
+      console.log(value);
     }
 
     if(value.length>8 || value.length<8){
-      campo.setCustomValidity("tamanho pequeno");
+      campo.setCustomValidity("tamanho inválido");
       return
     }
     campo.setCustomValidity("");
@@ -130,5 +138,30 @@ function verificarSenhaValido(campo) {
       }
 
     })
+  }
+
+  function verificarDataDeDisponibilidade(campo){
+    let hoje = new Date();
+    if(campo && new Date(campo.value)<hoje){
+      campo.setCustomValidity("invalido");
+      return;
+    }
+    campo.setCustomValidity("");
+  }
+
+  function verificarValorDiaria(campo){
+    let valor;
+    try{
+      valor= parseFloat(campo.value.replace(",", "."));
+      if(valor>5){
+        campo.setCustomValidity("");
+        return;
+      }
+   
+    }
+    catch(erro){  
+      console.log(erro);
+    }
+    campo.setCustomValidity("erro");
   }
 

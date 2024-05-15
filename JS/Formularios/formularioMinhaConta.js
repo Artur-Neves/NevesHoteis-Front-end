@@ -1,5 +1,5 @@
-import {carregarTemplates} from "./adicionarTemplates.js";
-import { verificarCampo, verificarOIndiceEscolhido } from "./validacoes/validacoesCampos.js";
+import {carregarTemplates} from "../adicionarTemplates.js";
+import { verificarCampo, verificarOIndiceEscolhido } from "../validacoes/validacoesCampos.js";
 carregarTemplates();
 
 //Tabela do formulário pessoal
@@ -114,6 +114,7 @@ const appendAlertEndereco = (message, type) => {
         desabilitarBotoesEndereco();
     }
     else{
+      verificarSenhaValido(senha);
       formularioEndereco.classList.add("was-validated");
     }
   });
