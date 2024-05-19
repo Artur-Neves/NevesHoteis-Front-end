@@ -38,8 +38,9 @@
     <main class="w-auto ">
         <section class="w-100  d-flex align-items-center flex-column gap-5 justify-content-evenly  my-5">
         <form class="border formulario formulario-minhaConta formulario rounded-2 p-3 Endereco my-3 needs-validation " novalidate>
-            <div class="d-flex justify-content-between pe-3 pb-3 mb-3">
-            <h2>Formulário Hotel</h2>
+          <fieldset> 
+          <div class="d-flex justify-content-between pe-3 pb-3 mb-3">
+            <h2 id="formularioTitulo">Formulário Hotel</h2>
             </div>
             <div id="liveAlertPlaceholder"></div>
             <div class="row g-3 g-sm-5 fieldsetPessoal" >
@@ -113,10 +114,11 @@
               </div>
               </div>
               <div class="col-12 d-flex  justify-content-evenly p-2 " >
-                <a href="adicionarFuncionario.html"  class="btn btn-outline-danger " id="btnCancelarEndereco">Cancelar</></a>
-                <button type="submit" class="btn btn-outline-success " id="btnSalvarEndereco">Cadastrar</button>
+                <a href="adicionarFuncionario.html"  class="btn btn-outline-danger " id="btnCancelar">Cancelar</></a>
+                <button type="submit" class="btn btn-outline-success " id="btnSalvar">Cadastrar</button>
                 </div>
             </div>
+          </fieldset>
         </form>
         </section>
     </main>

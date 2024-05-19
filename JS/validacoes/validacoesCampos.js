@@ -25,9 +25,6 @@ export let focus =true;
         case "data_de_nascimento":
           verificarDataDeNascimento(campo);
         break;
-        case "data_de_nascimento":
-          verificarDataDeNascimento(campo);
-        break;
         case "data_de_disponibilidade":
           verificarDataDeDisponibilidade(campo);
         break;

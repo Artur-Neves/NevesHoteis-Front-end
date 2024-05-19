@@ -37,9 +37,11 @@
     </header>
     <main class="w-auto ">
         <section class="w-100  d-flex align-items-center flex-column gap-5 justify-content-evenly  my-5">
-        <form class="border formulario formulario-minhaConta formulario rounded-2 p-3 Endereco my-3 needs-validation " novalidate>
+          
+          <form class="border formulario formulario-minhaConta formulario rounded-2 p-3 Endereco my-3 needs-validation " novalidate>
+            <fieldset>
             <div class="d-flex justify-content-between pe-3 pb-3 mb-3">
-            <h2>Formulário Funcionário</h2>
+            <h2 id="formularioTitulo">Formulário Funcionário</h2>
             </div>
             <div id="liveAlertPlaceholder"></div>
             <div class="row g-3 g-sm-5 fieldsetPessoal" >
@@ -119,7 +121,7 @@
               </div>
               <div class="col-sm-6 col-12">
                 <label for="inputCidade" class="form-label">Cidade</label>
-                <select class="form-select" aria-label="Default select example" id="inputCidade">
+                <select class="form-select" aria-label="Default select example" id="inputCidade" >
                   <option value="0" selected>Selecione a sua cidade</option>
                 </select>
                 <div class="invalid-feedback">
@@ -140,12 +142,14 @@
                   Lougadouro não pode estar vazio.         
               </div>
               </div>
+            </fieldset>
               <div class="col-12 d-flex  justify-content-evenly p-2 " >
-                <a href="adicionarFuncionario.html"  class="btn btn-outline-danger " id="btnCancelarEndereco">Cancelar</></a>
-                <button type="submit" class="btn btn-outline-success " id="btnSalvarEndereco">Cadastrar</button>
+                <a href="adicionarFuncionario.html"  class="btn btn-outline-danger " id="btnCancelar">Cancelar</></a>
+                <button type="submit" class="btn btn-outline-success" id="btnSalvar">Cadastrar</button>
                 </div>
             </div>
         </form>
+       
         </section>
     </main>
     <footer id="footerContainer">

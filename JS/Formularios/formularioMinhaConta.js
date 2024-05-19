@@ -1,5 +1,6 @@
 import {carregarTemplates} from "../adicionarTemplates.js";
 import { verificarCampo, verificarOIndiceEscolhido } from "../validacoes/validacoesCampos.js";
+import {pegarImagemPorCamera} from "../CapturarImagem.js";
 carregarTemplates();
 
 //Tabela do formulário pessoal
@@ -9,7 +10,9 @@ const btnCancelarPessoal = document.getElementById("btnCancelarPessoal");
 const btnSalvarPessoal = document.getElementById("btnSalvarPessoal");
   const alertaSucessoPessoal = document.getElementById('liveAlertPlaceholderPessoal')
 const formularioPessoal = document.querySelector(".formularioPessoal");
-
+const btnsFile = document.querySelector("[btnsFile]");
+const btnAbrirCamera = document.querySelector("#btnAbrirCamera");
+const btnEscolherFoto = document.querySelector("#btnEscolherImagem"); 
 
 //Tabela do formulário do endereço
 const lapisEditarEndereco = document.querySelector("[lapis='Endereco']");
@@ -20,6 +23,11 @@ const alertaSucessoEndereco = document.getElementById('liveAlertPlaceholderEnder
 const formularioEndereco = document.querySelector(".formularioEndereco");
 const cep = document.querySelector("[campo='cep']");
 const campos = document.querySelectorAll("[campo]");
+const canvas = document.querySelector("canvas");
+
+
+btnAbrirCamera.addEventListener("click", ()=>{pegarImagemPorCamera( canvas)});
+
 
 campos.forEach(element => {
   element.addEventListener("blur", ()=>{verificarCampo(element,false);}); 
@@ -40,12 +48,15 @@ function desabilitarBotoesPessoal(){
     lapisEditarPessoal.style.display="block";
     btnCancelarPessoal.style.display="none";
     btnSalvarPessoal.style.display="none";
+    btnsFile.classList.replace("d-flex", "d-none");
+  
 }
 
 function habilitarBotoesPessoal(){
     lapisEditarPessoal.style.display="none";
     btnCancelarPessoal.style.display="block";
     btnSalvarPessoal.style.display="block";
+    btnsFile.classList.replace("d-none", "d-flex");
 }
 
 const appendAlertPessoal = (message, type) => {
@@ -118,6 +129,8 @@ const appendAlertEndereco = (message, type) => {
       formularioEndereco.classList.add("was-validated");
     }
   });
+
+  
   
 
 
