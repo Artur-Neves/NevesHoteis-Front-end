@@ -5,8 +5,8 @@ const bairro = document.getElementById("inputBairro");
 const cidade = document.getElementById("inputCidade");
 const logadouro = document.getElementById("inputLogadouro");
 
-buscarEstados();
-estado.addEventListener("click", buscarCidade);
+//buscarEstados();
+//estado.addEventListener("click", buscarCidade);
 
 async function buscarEstados(){
     try {

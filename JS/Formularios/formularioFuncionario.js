@@ -1,6 +1,8 @@
 import {carregarTemplates} from "../adicionarTemplates.js";
-import {olhoSenha, verificarCampo, focus, verificarOIndiceEscolhido, verificarSenhaValido} from "../validacoes/validacoesCampos.js";
 carregarTemplates();
+import {olhoSenha, verificarCampo, focus, verificarOIndiceEscolhido, verificarSenhaValido} from "../validacoes/validacoesCampos.js";
+import {mostrarImagem} from "../CapturarImagem.js";
+
 
 const campos = document.querySelectorAll("[campo]");
 const alertaSucesso = document.getElementById('liveAlertPlaceholder');
@@ -20,11 +22,12 @@ const desabilitarCampos = document.querySelector("fieldset");
 data_nascimento.setAttribute("max", new Date());
 let title = document.getElementById("formularioTitulo");
 const btnSubmit= document.querySelector("[type='submit']");
-const btnReset= document.querySelector("#btnCancelar")
+const btnReset= document.querySelector("#btnCancelar");
+
 
 olhoSenha(senha);
 
-modoExcluir();
+ modoEditar();
 
 
 campos.forEach((campo)=>{
@@ -52,6 +55,7 @@ const appendAlert= (message, type) => {
     verificarOIndiceEscolhido();
     if (formulario.checkValidity()) {
         appendAlert('Nice, you triggered this alert message!', 'success');
+        modoEditar();
     }
     else{
       verificarSenhaValido(senha);
@@ -92,6 +96,7 @@ const appendAlert= (message, type) => {
     btnSubmit.classList.replace("btn-outline-success","btn-outline-danger");
     btnSubmit.textContent="Excluir";
     btnReset.classList.replace("btn-outline-danger","btn-outline-success");
+    document.querySelector("[btnsFile]").classList.add("d-none");
   }
 
   

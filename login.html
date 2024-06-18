@@ -17,9 +17,12 @@
   <link rel="stylesheet" href="./css/login.css" />
 </head>
 <body style="height: 100vh;">
-    
         <section class=" w-100 h-100 d-flex justify-content-center align-items-center">
-        <form action="#" class="rounded-2 px-4 mx-5 formulario needs-validation" login novalidate>
+          <form action="#" class="rounded-2  mx-5 formulario needs-validation" login novalidate> 
+            <div class="alert alert-danger d-none" alert role="alert">
+              Credenciais incorretas!
+            </div>
+            <div class="px-4">
             <h2 class="display-3 text-center m-3 py-3 ">Login</h2>
             <div class="alert alert-danger d-none " role="alert">Erro simples</div>
                 <div class="flex-nowrap input-group mt-3" campo-div>
@@ -46,7 +49,7 @@
               <a href="emailRedefinirSenha.html" class=" d-flex justify-content-end mt-2">Esqueceu a senha?</a>
               <input type="submit" class="btn btn-entrar w-100 mb-3 mt-4" value="Entrar"/>
               <p>Não tem uma conta? <a href="./cadastro.html">Cadastre-se</a></p>
-
+            </div>
         </form>
     </section>
     

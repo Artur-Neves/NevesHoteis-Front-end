@@ -1,6 +1,7 @@
 @import url("./style.css");
 body{
 width: 100vw;
+height: 100vh;
 }
 .formulario{
 width: clamp(300px, 50%, 600px) !important;

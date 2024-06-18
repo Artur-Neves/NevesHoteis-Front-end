@@ -1,5 +1,6 @@
 import {carregarTemplates} from "../adicionarTemplates.js";
 import {verificarCampo, verificarOIndiceEscolhido} from "../validacoes/validacoesCampos.js";
+import {mostrarMultiplasImagens} from "../CapturarImagem.js"
 carregarTemplates();
 
 const campos = document.querySelectorAll("[campo]");
@@ -18,16 +19,22 @@ const desabilitarCampos = document.querySelector("fieldset");
 let title = document.getElementById("formularioTitulo");
 const btnSubmit= document.querySelector("[type='submit']");
 const btnReset= document.querySelector("#btnCancelar");
+const inputFiles = document.querySelector("#inputFiles");
+const wrapper = document.querySelector(".swiper-wrapper");
+let swiper = atualizarSwiper();
 data_de_disponibilidade.setAttribute("max", hoje.setFullYear(10));
 data_de_disponibilidade.setAttribute("min", hoje);
 
-modoExcluir();
+
 campos.forEach((campo)=>{
   campo.addEventListener("blur", function(){ verificarCampo(campo, false);});
   campo.addEventListener("keyup", function(){ verificarCampo(campo)});
  });
 
 
+inputFiles.addEventListener("input", async ()=>{
+  await mostrarMultiplasImagens(inputFiles); 
+  swiper.update(); verificarCampo(inputFiles)});
   
 const appendAlert= (message, type) => {
   const wrapper = document.createElement('div')
@@ -45,6 +52,7 @@ const appendAlert= (message, type) => {
   formulario.addEventListener("submit", function (event) {
     event.preventDefault();
     verificarOIndiceEscolhido();
+    verificarCampo(inputFiles);
     if (formulario.checkValidity()) {
         appendAlert('Nice, you triggered this alert message!', 'success');
     }
@@ -72,7 +80,7 @@ const appendAlert= (message, type) => {
     // cep = 
     // estado = 
     // cidade = 
-    // bairro = 
+    // bairro = allowSlidePrev
     // logadouro = 
     title.textContent="Excluindo Hotel"
     desabilitarCampos.setAttribute("disabled", "");
@@ -80,7 +88,37 @@ const appendAlert= (message, type) => {
     btnSubmit.textContent="Excluir";
     btnReset.classList.replace("btn-outline-danger","btn-outline-success");
   }
-
+function atualizarSwiper(){
+  return new Swiper(".swiper", {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    allowSlideNext: true,
+    allowSlidePrev: true,
+  
+    pagination: {
+      el: ".swiper-pagination",
+      type: "bullets",
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      '@0.3': {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      '@1.00': {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      '@1.50': {
+        slidesPerView: 2,
+        spaceBetween: 40,
+      }
+    },
+  });
+}
   
 
 

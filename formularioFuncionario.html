@@ -37,13 +37,20 @@
     </header>
     <main class="w-auto ">
         <section class="w-100  d-flex align-items-center flex-column gap-5 justify-content-evenly  my-5">
-          
           <form class="border formulario formulario-minhaConta formulario rounded-2 p-3 Endereco my-3 needs-validation " novalidate>
             <fieldset>
             <div class="d-flex justify-content-between pe-3 pb-3 mb-3">
             <h2 id="formularioTitulo">Formulário Funcionário</h2>
             </div>
             <div id="liveAlertPlaceholder"></div>
+            <div class="w-100 h-auto d-flex flex-column gap-4 align-items-center justify-content-center mb-5">
+              <div class="bg bg-secondary imagemPerfil  d-flex align-items-center justify-content-center pt-1 position-relative" ><img src="" alt="" class="d-none" imgPerfil> <i class="bi-person-circle"></i></div>
+              <div class="d-flex w-50 px-md-5 justify-content-evenly " btnsFile>
+              <label for="inputFile" class="btn btn-primary botaoCamera  d-flex align-items-center justify-content-center" id="btnEscolherImagem"><i class="bi bi-images"></i></label>
+                <input type="file" accept=".jpg, .jpeg, .png" id="inputFile" class="rounded rounded-2 d-none" multiple="false">
+             
+            </div>
+            </div>  
             <div class="row g-3 g-sm-5 fieldsetPessoal" >
             <div class="col-sm-6 col-12" >
               <div>

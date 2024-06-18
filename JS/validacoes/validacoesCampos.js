@@ -31,6 +31,9 @@ export let focus =true;
         case "valor_diaria":
           verificarValorDiaria(campo);
         break;
+        case "file":
+          verificarFile(campo);
+        break;
 
       default:
         new console.error();
@@ -41,8 +44,8 @@ export function verificarSenhaValido(campo) {
     const proximoElemento =  campo.parentElement.nextElementSibling;
     proximoElemento.style.display= "block";
          const valorCampo = campo.value;
-          requisitosSenha[1].style.color= (!valorCampo.match(/[a-z]+/) ? "red" : "green");
-          requisitosSenha[2].style.color= (!valorCampo.match(/[A-Z]+/) ? "red" : "green");
+          requisitosSenha[2].style.color= (!valorCampo.match(/[a-z]+/) ? "red" : "green");
+          requisitosSenha[1].style.color= (!valorCampo.match(/[A-Z]+/) ? "red" : "green");
           requisitosSenha[3].style.color= (!valorCampo.match(/[0-9]+/) ? "red" : "green");
           requisitosSenha[0].style.color= ((campo.validity.tooShort || campo.validity.valueMissing) ? "red" : "green");
           if(requisitosSenha.values().filter(req=>req.style.color=="red").length>0){
@@ -160,5 +163,20 @@ export function verificarSenhaValido(campo) {
       console.log(erro);
     }
     campo.setCustomValidity("erro");
+  }
+  
+  function verificarFile(campo){ 
+    const invalidFile = document.querySelector("#invalidFile");
+    const campoWrapper = document.querySelector(".swiper-wrapper");
+    let filesSelecionadas = campoWrapper.childElementCount;
+    if(filesSelecionadas>10 || filesSelecionadas<=0){
+      campo.setCustomValidity("Error");
+      invalidFile.classList.add("d-flex");
+    }
+    else{
+      campo.setCustomValidity("");
+      invalidFile.classList.remove("d-flex");
+    }
+
   }
 

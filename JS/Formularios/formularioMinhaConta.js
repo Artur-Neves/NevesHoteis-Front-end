@@ -23,10 +23,10 @@ const alertaSucessoEndereco = document.getElementById('liveAlertPlaceholderEnder
 const formularioEndereco = document.querySelector(".formularioEndereco");
 const cep = document.querySelector("[campo='cep']");
 const campos = document.querySelectorAll("[campo]");
-const canvas = document.querySelector("canvas");
 
 
-btnAbrirCamera.addEventListener("click", ()=>{pegarImagemPorCamera( canvas)});
+
+btnAbrirCamera.addEventListener("click", ()=>{pegarImagemPorCamera()});
 
 
 campos.forEach(element => {

@@ -43,8 +43,28 @@
             <h2 id="formularioTitulo">Formulário Hotel</h2>
             </div>
             <div id="liveAlertPlaceholder"></div>
-            <div class="row g-3 g-sm-5 fieldsetPessoal" >
             
+            <div class="row g-3 g-sm-5 fieldsetPessoal" >
+              <div class="swiper col-12 imagensHotel" >
+                <!-- Slider main container -->
+                <div
+                  class="swiper-wrapper h-100 "
+                >
+                
+                </div>
+                <div class="swiper-pagination pb-3"></div>        
+                <div class="swiper-button-prev d-none d-sm-block" ></div>
+                <div class="swiper-button-next d-none d-sm-block"></div>
+              </div>
+              <div class="invalid-feedback" id="invalidFile">
+                O Hotel deve possuir pelo menos 1 foto e no máximo 10 fotos     
+            </div>
+              <div class="col-12 d-flex justify-content-center mt-5">            
+                <label for="inputFiles" class="btn btn-primary botaoCamera  d-flex align-items-center justify-content-center" id="btnEscolherImagem"><i class="bi bi-images"></i></label>
+                <input type="file" accept=".jpg, .jpeg, .png" id="inputFiles" class="rounded rounded-2 d-none" multiple="true" maxlength="10" campo="file" required>
+                
+              </div>
+  
             <div class=" col-12">
               <div>
               <label for="inputUsername" class="form-label">Nome</label>
@@ -77,7 +97,7 @@
                 <label for="inputCep4" class="form-label">CEP</label>
                 <input type="text" class="form-control" id="inputCep" minlength="8" maxlength="9" required campo="cep">
                 <div class="invalid-feedback">
-                  CEP válido         
+                  CEP inválido         
               </div>
               </div>
              
@@ -129,7 +149,8 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script type="module" src="./JS/Formularios/formularioHotel.js"></script>
-  
   </body>
 </html>
