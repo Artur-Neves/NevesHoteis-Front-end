@@ -20,11 +20,15 @@
     
         <section class=" w-100 h-100 d-flex justify-content-center align-items-center">
         <form action="#" class="rounded-2 px-4 mx-5 formulario needs-validation" login novalidate>
-            <h2 class=" text-center m-3 py-3 ">Redefenir Senha</h2>
+            <h2 class=" text-center m-3 py-3 ">Redefinir Senha</h2>
+            <p>Para redefinir a senha, insira o código enviado para 
+              <span class="fw-bold" id="email-usuario">fulano@gmail.com</span>.
+               Se não estiver na caixa de entrada, verifique a pasta de spam.</p>
+               <div id="alert-erro"></div>
             <div class="input-group flex-nowrap mt-3" campo-div>
                 <span class="input-group-text" id="inputGroup-sizing-lg"><i class="bi bi-lock-fill"></i></span>
                 <input type="password" class="rounded-2 border border-1 w-100 ps-3" placeholder="Nova senha" aria-label="password" aria-describedby="addon-wrapping" autocomplete="current-password" required minlength="8" maxlength="24" campo="senha">
-            <span><i class="olho fs-3 bi bi-eye-fill"></i></span>  
+            <span><i class=" olho fs-3 bi bi-eye-fill"></i></span>  
             </div>
               <div class="invalid-feedback">
                 <ul class="lista-requisitos-senha" >
@@ -37,15 +41,20 @@
             
             <div class="input-group flex-nowrap mt-3" campo-div>
                 <span class="input-group-text" id="inputGroup-sizing-lg"><i class="bi bi-lock-fill"></i></span>
-                <input type="password" class="rounded-2 border border-1 w-100 ps-3" placeholder="Repita a senha" aria-label="password" aria-describedby="addon-wrapping" autocomplete="current-password" required minlength="8" maxlength="24" campo="senha">
+                <input type="password" class="rounded-2 border border-1 w-100 ps-3" placeholder="Repita a senha" aria-label="password" aria-describedby="addon-wrapping" autocomplete="current-password" required minlength="8" maxlength="24" campo="repeat__Senha">
             <span><i class="olho fs-3 bi bi-eye-fill"></i></span>  
             </div>
+            <div class="invalid-feedback">
+              Senhas não confere           
+          </div>
+            <input type="text" class="form-control input-group flex-nowrap mt-3" placeholder="digite o código enviado" aria-label="codigo" aria-describedby="addon-wrapping" id="codigo" minlength="6" maxlength="6" required>
               <input type="submit" class="btn btn-entrar w-100 mb-3 mt-4" value="Redefinir senha"/>
-
+              <p reenviar>Não recebeu o email? <a href="#" id="reenviar-link">Reenviar</a></p>
+              <p cronometro></p>
         </form>
     </section>
     
    
-  <script type="module" src="./JS/loginAndCadastro.js"></script>
+  <script type="module" src="./JS/enviarEmailConfimacao.js"></script>
 </body>
 </html>

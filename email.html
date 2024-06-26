@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 97vh;
+            margin: 0px;
+        }
+        section{
+            height: 100%;
+            width: 100%;
+         
+        
+        }
+      
+        .menssage{
+            width: clamp(300px, 40%, 700px); ;
+            background-color: #EEF5B2;
+            text-align: center; 
+            border-top: 0px;
+        }
+        .codigo{
+            background-color: #6DECB9;
+            color: #EEF5B2;
+            padding: 10px;
+            font-size: 2rem;
+            text-align: center;
+            display:inline-block;
+            font-weight: bold;
+            }
+            .container-codigo{
+                width: 100%;
+                text-align: center;
+            }
+        .title{
+            text-align: center;
+            font-size: 3rem;
+          
+        }
+        .text-menssage{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 1.2rem;
+            text-align: justify;
+            padding: 0  50px;
+            align-items: center;
+        }
+        .imagem{
+            border-bottom: 0px; 
+            height: 350px;    
+            text-align: center;
+        }
+        .imagem2{
+            margin-top: 150px;
+            display: none;
+        }
+        table{
+            width: 100%;
+            align-items: center;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+        td{
+            align-items: center;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+      
+         @media screen and (max-width: 576px) {
+            .imagem1{
+                display: none;
+            }
+            .imagem2{
+
+                display: block;
+            }
+        } 
+
+    </style>
+</head>
+<body>
+    <section>
+        <table>
+            <tr> 
+                <td>
+                    <div class="imagem"> 
+                        <img  class="imagem1" src="./assets/img/Logo_Original-Cortado.png" alt="Logo NevesHoteis">
+                        <img  class="imagem2" src="./assets/img/Logo_Original-Cortado-Tamanho-Medio.png" alt="Logo NevesHoteis">
+                    </div>
+                 </td>
+            </tr>
+        <tr>       
+            <td>
+            <div class="menssage">
+            <h1 class="title">Valide seu email</h1>
+            <p class="text-menssage">Ola, nome da pessoa, você realizou o cadatro no site NevesHoteis, para validar a sua conta, insira este código no campo informado! </p>
+            <div class="container-codigo"><p class="codigo">ACASWQ</p></div>
+        </div>
+        </td>
+      </tr>
+ 
+    </table>
+
+</section>
+</body>
+</html>

@@ -1,16 +1,21 @@
 import { loginApi } from "./APIs/loginApi.js";
-import { cadastrarUsuario } from "./APIs/usuarioSimplesApi.js";
+import { cadastrarSimpleUser } from "./APIs/usuarioSimplesApi.js";
+import { alerta } from "./alert.js";
 import {olhoSenha, verificarCampo, focus} from "./validacoes/validacoesCampos.js";
 
 const divLoginSenha = document.querySelectorAll("[campo-div]");
 const senha = document.querySelector("[campo='senha'");
-const email = document.querySelector("[campo='email");
-const username = document.querySelector("[username]");
+const email = document.querySelector("[campo='email'");
+const username = document.querySelector("[campo='username");
 const formulario = document.querySelector(".formulario");
 const campos = document.querySelectorAll("[campo]");
-const alert = document.querySelector("[alert]");
+const alert = document.getElementById("alert-erro");
 
 olhoSenha(senha);
+if(sessionStorage.getItem("menssagem-confirmacao")){
+  alerta("success ", sessionStorage.getItem("menssagem-confirmacao"), alert);
+  sessionStorage.removeItem("menssagem-confirmacao");
+}
 
 formulario.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -32,21 +37,32 @@ function efetuarLogin(){
     localStorage.setItem("authToken", response.token);
     window.location.href = "index.html";
     }
-    else{
-      alert.classList.remove("d-none");
-      console.log("Erro")
+  }).catch(error=>{
+    if(error.message=="Usuário desabilitado"){
+      sessionStorage.setItem("email", email.value);
+      setTimeout(window.location.href="confirmacaoEmail.html", 500);
     }
-  }).catch(error => {
-    alert.classList.remove("d-none");
-    console.log(error);
+    alerta("danger",error.message, alert);
   })
 }
 
 function efetuarCadastro() {
 const cadastro = {
-
+  name: username.value,
+  loginDto:{
+    login: email.value,
+    password: senha.value
+  }
 }
-  window.location.href= "confirmacaoEmail.html";
+cadastrarSimpleUser (cadastro).then(response=>{
+  if(response){
+    sessionStorage.setItem("cadastro",  JSON.stringify(response));
+    window.location.href= "confirmacaoEmail.html";
+  }
+}).catch(error=>{
+  alerta("danger", error.message, alert);
+});
+  
 }
 
 

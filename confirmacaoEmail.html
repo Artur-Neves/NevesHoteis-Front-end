@@ -24,15 +24,17 @@
             <p>Para continuar, informe o código de segurança que enviamos
                  para <span class="fw-bold" id="email-usuario">fulano@gmail.com</span>.
                   Se não estiver na caixa de entrada, verifique a pasta de spam.</p>
-                  <div class="alert alert-danger d-none" role="alert">Erro simples</div>
-                  <input type="text" class="form-control" placeholder="digite o código enviado" aria-label="codigo" aria-describedby="addon-wrapping" minlength="6" maxlength="6" required>
-              <input type="submit" class="btn btn-entrar w-100 mb-3 mt-4" value="Confirmar"/>
+                  <div id="alert-erro"></div>
+                  <input type="text" class="form-control" placeholder="digite o código enviado" aria-label="codigo" aria-describedby="addon-wrapping" id="codigo" minlength="6" maxlength="6" required>
+              <input type="submit" class="btn btn-entrar w-100 mb-3 mt-4" id="buttonVerify" value="Confirmar"/>
               <p reenviar>Não recebeu o email? <a href="#" id="reenviar-link">Reenviar</a></p>
+              <p cronometro></p>
+              
 
         </form>
     </section>
     
    
-  <script src="./JS/enviarEmailConfimacao.js"></script>
+  <script type="module" src="./JS/enviarEmailConfimacao.js"></script>
 </body>
 </html>

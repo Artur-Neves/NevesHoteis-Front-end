@@ -34,6 +34,9 @@ export let focus =true;
         case "file":
           verificarFile(campo);
         break;
+        case "repeat__Senha":
+          repeat__Senha(campo);
+        break;
 
       default:
         new console.error();
@@ -178,5 +181,20 @@ export function verificarSenhaValido(campo) {
       invalidFile.classList.remove("d-flex");
     }
 
+  }
+  function repeat__Senha(campo) {
+    const proximoElemento =  campo.parentElement.nextElementSibling;
+    const senha = document.querySelector("[campo='senha'").value;
+
+    if ( senha===campo.value) {
+      campo.classList.remove("is-invalid");
+      proximoElemento.style.display= "none";
+      campo.setCustomValidity("");
+      return
+    }
+    campo.classList.add("is-invalid");
+    campo.setCustomValidity("invalid");
+    proximoElemento.style.display= "block";
+    
   }
 

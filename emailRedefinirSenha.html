@@ -19,18 +19,21 @@
 <body>
     
         <section class=" w-100 h-100 d-flex justify-content-center align-items-center">
-        <form action="#" class="rounded-2 px-4 mx-5 formulario needs-validation" enviar-email novalidate>
+        <form action="#"   class="rounded-2 px-4 mx-5 formulario needs-validation" enviar-email novalidate>
             <h3 class="display-5 text-center m-3 py-3 ">Esqueceu a senha?</h2>
-            <p>Insira o seu endereço de e-mail para receber um link de redefinição de senha.</p>
-                  <div class="alert alert-danger d-none" role="alert">Erro simples</div>
-                  <input type="email" class="form-control" placeholder="exemplo@gmail.com" aria-label="Email" aria-describedby="addon-wrapping" autocomplete="email" id="emailRedefinirSenha" required>
-                  <div class="invalid-feedback">
-                    Digite um email válido        
-                </div>
+            <p>Insira o seu endereço de e-mail para receber um código para a redefinição da senha.</p>
+            <div id="alert-erro"></div>
+            <div class="flex-nowrap input-group mt-3" campo-div>
+              <span class="input-group-text" id="addon-wrapping"><i class="bi bi-envelope-fill"></i></span>
+              <input type="email" class="form-control was-validated" placeholder="@email.com" aria-label="Email" aria-describedby="addon-wrapping"  autocomplete="email" required campo="email" email>
+             </div>
+              <div class="invalid-feedback">
+                Digite um email válido           
+            </div>
                   <input type="submit" class="btn btn-entrar w-100 mb-3 mt-4" value="Solicitar"/>
         </form>
     </section>
    
-  <script src="./JS/processoRedefinirSenha.js"></script>
+  <script type="module" src="./JS/processoRedefinirSenha.js"></script>
 </body>
 </html>

@@ -1,22 +1,28 @@
+import { verificarCampo} from "./validacoes/validacoesCampos.js";
+import { alerta } from "./alert.js";
+import { existUser } from "./APIs/loginApi.js";
 const formulario = document.querySelector(".formulario");
-const campo = document.getElementById("emailRedefinirSenha");
+const campo = document.querySelector("[campo='email'");
+const alert = document.getElementById("alert-erro");
 let focus = true;
 formulario.addEventListener("submit", function (event) {
     event.preventDefault();
-    if (formulario.checkValidity()) {
-      window.location.href =  "pedidoRedefinirSenha.html";
+    if (formulario.checkValidity() && verificarLogin(campo.value)) {
+      verificarLogin(email)
     }
-  });
+  }); 
 
-  campo.addEventListener("blur", function(){ verificarCampoTextValido(campo); focus=false});
-  campo.addEventListener("keyup", function(){ verificarCampoTextValido(campo);});
-  function verificarCampoTextValido(campo){
-    const proximoElemento =  campo.nextElementSibling;
-    if (!campo.validity.valid && !focus) {
-      campo.classList.add("is-invalid");
-      proximoElemento.style.display= "block";
-      return
-    }
-    campo.classList.remove("is-invalid");
-    proximoElemento.style.display= "none";
+  function verificarLogin(email){
+     existUser(email).then(response => { 
+      sessionStorage.setItem("email", campo.value);
+      window.location.href =  "redefinirSenha.html";
+    }).catch(error => {
+      alerta("danger", "Email não existe na base da dados", alert);
+      return false;
+    });
+    return true;
+   
   }
+
+  campo.addEventListener("blur", function(){ verificarCampo(campo, false); });
+  campo.addEventListener("keyup", function(){ verificarCampo(campo);});

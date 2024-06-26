@@ -8,6 +8,12 @@ export async function cadastrarUsuario(credenciais) {
     body: JSON.stringify(credenciais),
   });
 }
+export async function cadastrarSimpleUser(credenciais) {
+  return await apiClient("/simple-user/create-simple", {
+    method: "POST",
+    body: JSON.stringify(credenciais),
+  });
+}
 export async function atualizarUsuario(id, credenciais) {
   return await apiClient(`/simple-user/${id}`, {
     method: "PUT",
