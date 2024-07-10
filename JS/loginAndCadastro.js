@@ -1,4 +1,4 @@
-import { loginApi } from "./APIs/loginApi.js";
+import { loginApi } from "./APIs/userApi.js";
 import { cadastrarSimpleUser } from "./APIs/usuarioSimplesApi.js";
 import { alerta } from "./alert.js";
 import {olhoSenha, verificarCampo, focus} from "./validacoes/validacoesCampos.js";
@@ -32,8 +32,10 @@ function efetuarLogin(){
     login: email.value,
     password: senha.value
   }
+  localStorage.removeItem("authToken");
   loginApi(login).then(response=>{
-    if(response.token){
+    if(response){
+    localStorage.setItem("refreshToken", response.refresh);
     localStorage.setItem("authToken", response.token);
     window.location.href = "index.html";
     }

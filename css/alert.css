@@ -12,9 +12,17 @@ box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
     font-size: 1.2rem;
     text-align: justify;
 }
+body, html{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  
+}
 body{
-    height: 100vh;
     background: url("/assets/img/fundoVermelho.jpg") no-repeat;
     background-position: center;
     background-size: cover; 
+    overflow-x: hidden;
+    overflow-y: hidden;
 }

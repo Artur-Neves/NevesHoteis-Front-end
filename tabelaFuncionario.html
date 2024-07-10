@@ -32,148 +32,90 @@
     />
     <link rel="stylesheet" href="./css/style.css" />
   </head>
-  <body >
-    <header id="headerContainer">
-    </header>
-    <main class="w-100 h-auto ">
-        <section class="w-100 h-100   d-flex align-items-center flex-column gap-5 justify-content-evenly  my-5">
-          <div class="border formulario formulario-minhaConta rounded-2 p-3 my-3" >
-           <h2 class="p-3 my-2">Funcionários</h2>
-            <div class="table-responsive p-3">
-                <table class="table table-bordered table-striped">
-                <thead>
-               <tr>
-                    <th>#</th>
-                    <th>Nome</th>
-                    <th>Email</th>
-                    <th>CPF</th>
-                    <th>Telefone</th>
-                    <th colspan=2></th>
-                </tr>
-            </thead>
-            <tbody>
+  <body>
+    <header id="headerContainer"></header>
+    <main class="w-100" style="height: 80vh">
+      <section
+        class="w-100 h-100 d-flex align-items-center flex-column gap-5 justify-content-evenly my-5"
+      >
+        <div class="border formulario formulario-minhaConta rounded-2 p-3 my-3">
+          <h2 class="p-3 my-2">Funcionários</h2>
+          <div class="table-responsive p-3">
+            <table class="table table-bordered table-striped">
+              <thead>
                 <tr>
-                    <td>1</td>
-                    <td>sdkfklsdf</td>
-                    <td>fulano@gmail.com</td>
-                    <td>06372607590</td>
-                    <td>73988180562</td>
-                    <td ><a href="" class="text-warning"><i class="bi bi-pencil-fill"></i></a></td>
-                    <td><a href="" class="text-danger"><i class="bi bi-trash3-fill"></i></a></td>
+                  <th>#</th>
+                  <th>Nome</th>
+                  <th>Email</th>
+                  <th>CPF</th>
+                  <th>Telefone</th>
+                  <th colspan="2">Operações</th>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>sdkfklsdf</td>
-                    <td>fulano@gmail.com</td>
-                    <td>06372607590</td>
-                    <td>73988180562</td>
-                    <td><a href="" class="text-warning"><i class="bi bi-pencil-fill"></i></a></td>
-                    <td><a href="" class="text-danger"><i class="bi bi-trash3-fill"></i></a></td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>sdkfklsdf</td>
-                    <td>fulano@gmail.com</td>
-                    <td>06372607590</td>
-                    <td>73988180562</td>
-                    <td><a href="" class="text-warning"><i class="bi bi-pencil-fill"></i></a></td>
-                    <td><a href="" class="text-danger"><i class="bi bi-trash3-fill"></i></a></td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>sdkfklsdf</td>
-                    <td>fulano@gmail.com</td>
-                    <td>06372607590</td>
-                    <td>73988180562</td>
-                    <td><a href="" class="text-warning"><i class="bi bi-pencil-fill"></i></a></td>
-                    <td><a href="" class="text-danger"><i class="bi bi-trash3-fill"></i></a></td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>sdkfklsdf</td>
-                    <td>fulano@gmail.com</td>
-                    <td>06372607590</td>
-                    <td>73988180562</td>
-                    <td><a href="" class="text-warning"><i class="bi bi-pencil-fill"></i></a></td>
-                    <td><a href="" class="text-danger"><i class="bi bi-trash3-fill"></i></a></td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td>sdkfklsdf</td>
-                  <td>fulano@gmail.com</td>
-                  <td>06372607590</td>
-                  <td>73988180562</td>
-                  <td><a href="" class="text-warning"><i class="bi bi-pencil-fill"></i></a></td>
-                  <td><a href="" class="text-danger"><i class="bi bi-trash3-fill"></i></a></td>
-              </tr>
-              <tr>
-                <td>7</td>
-                <td>sdkfklsdf</td>
-                <td>fulano@gmail.com</td>
-                <td>06372607590</td>
-                <td>73988180562</td>
-                <td><a href="" class="text-warning"><i class="bi bi-pencil-fill"></i></a></td>
-                <td><a href="" class="text-danger"><i class="bi bi-trash3-fill"></i></a></td>
-            </tr>
-            <tr>
-              <td>8</td>
-              <td>sdkfklsdf</td>
-              <td>fulano@gmail.com</td>
-              <td>06372607590</td>
-              <td>73988180562</td>
-              <td><a href="" class="text-warning"><i class="bi bi-pencil-fill"></i></a></td>
-              <td><a href="" class="text-danger"><i class="bi bi-trash3-fill"></i></a></td>
-          </tr>
-          <tr>
-            <td>9</td>
-            <td>sdkfklsdf</td>
-            <td>fulano@gmail.com</td>
-            <td>06372607590</td>
-            <td>73988180562</td>
-            <td><a href="" class="text-warning"><i class="bi bi-pencil-fill"></i></a></td>
-            <td><a href="" class="text-danger"><i class="bi bi-trash3-fill"></i></a></td>
-        </tr> 
-        <tr>
-          <td>10</td>
-          <td>sdkfklsdf</td>
-          <td>fulano@gmail.com</td>
-          <td>06372607590</td>
-          <td>73988180562</td>
-          <td><a href="" class="text-warning"><i class="bi bi-pencil-fill"></i></a></td>
-          <td><a href="" class="text-danger"><i class="bi bi-trash3-fill"></i></a></td>
-      </tr>
-            </tbody>    
+              </thead>
+              <tbody id="list">
+              </tbody>
             </table>
-        </div>
-        <nav aria-label="Page navigation example ">
-          <ul class="pagination w-100 justify-content-center">
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
           </div>
-       
-        </section>
+
+          <nav aria-label="Page navigation example ">
+            <ul class="pagination w-100 justify-content-center">
+              <li class="page-item">
+                <a class="page-link"  aria-label="Previous" id="first">
+                  <span aria-hidden="true">&laquo;</span></a
+                >
+              </li>
+              <li class="page-item">
+                <a class="page-link" aria-label="Previous" id="prev">
+                  <span aria-hidden="true">&lt;</span>
+                </a>
+              </li>
+             <ul class="pagination" id="sublist">
+              <li class="page-item"><a class="page-link active">1</a></li>
+              <li class="page-item"><a class="page-link" >2</a></li>
+              <li class="page-item"><a class="page-link" >3</a></li>
+             </ul>
+              <li class="page-item">
+                <a class="page-link" aria-label="Next" id="next">
+                  <span aria-hidden="true">&gt;</span>
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link"  aria-label="Next" id="lasted">
+                  <span aria-hidden="true">&#187;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </section>
     </main>
-    <footer id="footerContainer">
-    </footer>
+      <article>
+          <!-- Modal -->
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="false">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalRemoverTitle">Tem certeza que deseja excluir?</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="btnCloseModal"></button>
+                  </div>
+                  <div class="modal-body" id="modalRemoverText">
+                   Error!
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" >Cancelar</button>
+                    <button type="button" class="btn btn-danger" id="btnRemover">Confirmar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+      
+    </article>
+    <footer id="footerContainer"></footer>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="./JS/tabelaFuncionario.js"></script>
-  
+    <script type="module" src="./JS/tables/tabelaFuncionario.js"></script>
   </body>
 </html>

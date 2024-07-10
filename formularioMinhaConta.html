@@ -42,7 +42,7 @@
             <h2>Dadaos pessoais</h2>
             <a href="#" lapis="Pessoal"><i class="bi bi-pencil fs-5"></i></a>
           </div>
-          <div id="liveAlertPlaceholderPessoal"></div>
+          <div id="liveAlertPlaceholder" ></div>
           <div class="w-100 h-auto d-flex flex-column gap-4 align-items-center justify-content-center">
           
           <canvas class="bg bg-secondary imagemPerfil  d-flex align-items-center justify-content-center pt-1 position-relative d-none" ></canvas>
@@ -58,7 +58,7 @@
             <fieldset class="row g-3 g-sm-5 fieldsetPessoal" >
             <div class="col-12" >
               <label for="inputEmail4" class="form-label">Email</label>
-              <input type="email" class="form-control" id="inputEmail4"  minlength="3" maxlength="40" required disabled>
+              <input type="email" class="form-control" id="inputEmail4"  minlength="3" maxlength="40" required disabled campo="email">
             </div>
             <div class="col-sm-6 col-12">
               <div>
@@ -85,7 +85,7 @@
             </div>
             <div class="col-sm-6 col-12">
               <label for="inputCity" class="form-label">Telefone</label>
-              <input type="tel" class="form-control" id="inputCity" minlength="10"  pattern="(\([0-9]{2}\))\s?([9]{1})?([0-9]{4})-?([0-9]{4})|([0-9]{11})"  required>
+              <input type="tel" class="form-control" id="inputCity" minlength="10"  pattern="([0-9]{11})"  required campo="telefone">
               <div class="invalid-feedback">
                 Digite um número válido         
             </div>
@@ -103,11 +103,11 @@
             <h2>Dadaos Endereço</h2>
             <a href="#" lapis='Endereco'><i class="bi bi-pencil fs-5"></i></a>
             </div>
-            <div id="liveAlertPlaceholderEndereco"></div>
+            <div id="liveAlertPlaceholder" ></div>
             <fieldset class="row g-3 g-sm-5 fieldsetEndereco " >
             <div class="col-sm-6 col-12" >
               <label for="inputCep4" class="form-label">CEP</label>
-              <input type="text" class="form-control" id="inputCep" minlength="8" maxlength="9" required campo="cep">
+              <input type="text" class="form-control" id="inputCep" minlength="9" maxlength="9" required pattern="\d{5}-\d{3}" campo="cep">
               <div class="invalid-feedback">
                 Digite um número de CEP válido         
             </div>

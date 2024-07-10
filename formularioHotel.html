@@ -65,7 +65,7 @@
                 
               </div>
   
-            <div class=" col-12">
+            <div class="col-sm-6 col-12">
               <div>
               <label for="inputUsername" class="form-label">Nome</label>
               <input type="text" class="form-control" id="inputUsername" minlength="3" maxlength="60" required campo="username">
@@ -81,11 +81,11 @@
                 Escolha uma data de dispnibilidade válida   
             </div>
             </div>
-            <div class="col-sm-6 col-6 ">
-              <label for="inputCity" class="form-label">Valor diária</label>
-              <div class="input-group">
+            <div class="col-sm-6 col-12 ">
+              <label for="inputValor" class="form-label">Valor diária</label>
+              <div class="input-group w-50">
               <span class="input-group-text">R$</span>
-              <input type="text" class="form-control" id="inputCity" maxlength="8" required campo="valor_diaria">
+              <input type="text" class="form-control text-end" id="inputValor" maxlength="8" required campo="valor_diaria">
               <div class="invalid-feedback">
                 Valor inválido         
             </div>
@@ -93,9 +93,9 @@
              
             </div>
             
-              <div class="col-sm-6 col-6" >
+              <div class="col-sm-6 col-12" >
                 <label for="inputCep4" class="form-label">CEP</label>
-                <input type="text" class="form-control" id="inputCep" minlength="8" maxlength="9" required campo="cep">
+                <input type="text" class="form-control" id="inputCep" required pattern="\d{5}-\d{3}" campo="cep">
                 <div class="invalid-feedback">
                   CEP inválido         
               </div>
@@ -126,7 +126,7 @@
                   Nome do bairro não pode esta vazio.         
               </div>
               </div>
-              <div class="col-12" >
+              <div class="col-sm-6 col-12" >
                 <label for="inputLogadouro" class="form-label">Lougadouro</label>
                 <input type="text" class="form-control" id="inputLogadouro"  required>
                 <div class="invalid-feedback">
@@ -134,7 +134,7 @@
               </div>
               </div>
               <div class="col-12 d-flex  justify-content-evenly p-2 " >
-                <a href="adicionarFuncionario.html"  class="btn btn-outline-danger " id="btnCancelar">Cancelar</></a>
+                <a  class="btn btn-outline-danger " id="btnCancelar">Cancelar</></a>
                 <button type="submit" class="btn btn-outline-success " id="btnSalvar">Cadastrar</button>
                 </div>
             </div>

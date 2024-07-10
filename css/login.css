@@ -31,6 +31,15 @@ ul{
     cursor: pointer;
     z-index: 1;
 }
+.image__403{
+    width: clamp(180px, 60%, 400px);
+}
+.text__403{
+    text-align: justify;
+    font-size: 1.4rem;
+    padding: 0px 30px;
+    font-weight: 500;
+}
 @media  screen and (min-width: 768px) {
     [senha]::placeholder{
    font-size: 1.3rem;
@@ -40,5 +49,8 @@ ul{
 @media screen and (max-width: 576px){
     .olho{
         top: 3px;
+    }
+    .text__403{
+        padding: 0px 10px;
     }
 }

@@ -36,14 +36,14 @@
     <header id="headerContainer">
     </header>
     <main class="w-auto ">
-        <section class="w-100  d-flex align-items-center flex-column gap-5 justify-content-evenly  my-5">
+        <section class="w-100  d-flex align-items-center flex-column gap-5 justify-content-evenly  py-5 mb-3">
           <form class="border formulario formulario-minhaConta formulario rounded-2 p-3 Endereco my-3 needs-validation " novalidate>
             <fieldset>
-            <div class="d-flex justify-content-between pe-3 pb-3 mb-3">
+            <div class="d-flex justify-content-between pe-3 pb-3 ">
             <h2 id="formularioTitulo">Formulário Funcionário</h2>
             </div>
-            <div id="liveAlertPlaceholder"></div>
-            <div class="w-100 h-auto d-flex flex-column gap-4 align-items-center justify-content-center mb-5">
+            <div id="liveAlertPlaceholder" ></div>
+            <div class="w-100 h-auto d-flex flex-column gap-4 align-items-center justify-content-center mb-5 ">
               <div class="bg bg-secondary imagemPerfil  d-flex align-items-center justify-content-center pt-1 position-relative" ><img src="" alt="" class="d-none" imgPerfil> <i class="bi-person-circle"></i></div>
               <div class="d-flex w-50 px-md-5 justify-content-evenly " btnsFile>
               <label for="inputFile" class="btn btn-primary botaoCamera  d-flex align-items-center justify-content-center" id="btnEscolherImagem"><i class="bi bi-images"></i></label>
@@ -61,23 +61,24 @@
                 Digite um email válido           
             </div>
             </div>
-        <div class=" col-sm-6 col-12" campo-div>
-            <label for="inputPassword" class="form-label">Password</label>
-            <div class="input-group flex-nowrap">
-          <span class="input-group-text" id="inputGroup-sizing-lg"><i class="bi bi-lock-fill"></i></span>
-          <input type="password" class="rounded-2 border border-1 w-100 ps-3" placeholder="Password" aria-label="password" aria-describedby="addon-wrapping" autocomplete="current-password" required minlength="8" maxlength="24" campo="senha">
-      <span><i class="olho fs-3 bi bi-eye-fill"></i></span>
-    </div>  
-     
-        <div class="invalid-feedback">
-          <ul class="lista-requisitos-senha" >
-            <li class="requisito-senha-item">Mínimo de 8 caractéres</li>
-            <li class="requisito-senha-item">Letra máiuscula</li>
-            <li class="requisito-senha-item">Letra minuscula</li>
-            <li class="requisito-senha-item">Dígitos</li>       
-          </ul>
+            <div class=" col-sm-6 col-12" id="divSenha" campo-div>
+              <label for="inputPassword" class="form-label">Password</label>
+              <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="inputGroup-sizing-lg"><i class="bi bi-lock-fill"></i></span>
+            <input type="password" class="rounded-2 border border-1 w-100 ps-3" placeholder="Password" aria-label="password" aria-describedby="addon-wrapping" autocomplete="current-password" required minlength="8" maxlength="24" campo="senha">
+        <span><i class="olho fs-3 bi bi-eye-fill"></i></span>
+      </div>  
+       
+          <div class="invalid-feedback">
+            <ul class="lista-requisitos-senha" >
+              <li class="requisito-senha-item">Mínimo de 8 caractéres</li>
+              <li class="requisito-senha-item">Letra máiuscula</li>
+              <li class="requisito-senha-item">Letra minuscula</li>
+              <li class="requisito-senha-item">Dígitos</li>       
+            </ul>
+        </div>
       </div>
-    </div>
+        
             <div class="col-sm-6 col-12">
               <div>
               <label for="inputUsername" class="form-label">Nome</label>
@@ -96,14 +97,14 @@
             </div>
             <div class="col-sm-6 col-12" >
               <label for="inputCPF" class="form-label">CPF</label>
-              <input type="text" class="form-control" id="inputCPF" minlength="11" maxlength="14" pattern="(\d{3}\.\d{3}\.\d{3}-\d{2})|(\d{11})" required campo="cpf">
+              <input type="text" class="form-control" id="inputCPF" minlength="11" maxlength="14" pattern="(\d{3}\.\d{3}\.\d{3}-\d{2})" required campo="cpf">
               <div class="invalid-feedback">
                 Digite um CPF válido          
             </div>
             </div>
             <div class="col-sm-6 col-12">
               <label for="inputCity" class="form-label">Telefone</label>
-              <input type="tel" class="form-control" id="inputCity" minlength="10"  pattern="(\([0-9]{2}\))\s?([9]{1})?([0-9]{4})-?([0-9]{4})|([0-9]{11})" required>
+              <input type="tel" class="form-control" id="inputCity" minlength="10"  pattern="([0-9]{11})" required campo="telefone">
               <div class="invalid-feedback">
                 Digite um número de telefone válido         
             </div>
@@ -111,7 +112,7 @@
             
               <div class="col-sm-6 col-12" >
                 <label for="inputCep4" class="form-label">CEP</label>
-                <input type="text" class="form-control" id="inputCep" minlength="8" maxlength="9" required campo="cep">
+                <input type="text" class="form-control" id="inputCep" minlength="9" maxlength="9" required pattern="\d{5}-\d{3}" campo="cep">
                 <div class="invalid-feedback">
                   Digite um número de CEP válido         
               </div>
@@ -142,7 +143,7 @@
                   Nome do bairro não pode esta vazio.         
               </div>
               </div>
-              <div class="col-12" >
+              <div class="col-sm-6 col-12" id="divLogadouro">
                 <label for="inputLogadouro" class="form-label">Lougadouro</label>
                 <input type="text" class="form-control" id="inputLogadouro"  required>
                 <div class="invalid-feedback">
@@ -150,13 +151,12 @@
               </div>
               </div>
             </fieldset>
-              <div class="col-12 d-flex  justify-content-evenly p-2 " >
-                <a href="adicionarFuncionario.html"  class="btn btn-outline-danger " id="btnCancelar">Cancelar</></a>
+              <div class="col-12 d-flex mt-3 justify-content-evenly p-2 " >
+                <a class="btn btn-outline-danger " id="btnCancelar" >Cancelar</></a>
                 <button type="submit" class="btn btn-outline-success" id="btnSalvar">Cadastrar</button>
                 </div>
             </div>
         </form>
-       
         </section>
     </main>
     <footer id="footerContainer">

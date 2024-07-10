@@ -5,8 +5,11 @@ const bairro = document.getElementById("inputBairro");
 const cidade = document.getElementById("inputCidade");
 const logadouro = document.getElementById("inputLogadouro");
 
-//buscarEstados();
-//estado.addEventListener("click", buscarCidade);
+
+if (cep && estado){
+buscarEstados();
+estado.addEventListener("click", buscarCidade);
+}
 
 async function buscarEstados(){
     try {
@@ -15,14 +18,14 @@ async function buscarEstados(){
       const json = await primese.json();
       let listUfsOrdenados =json.sort((uf1,uf2)=> uf1.nome.localeCompare(uf2.nome));
       listUfsOrdenados.forEach(element => {
-        estado.innerHTML+= `<option value='${element.id}'>${element.sigla}</option>`;
+        estado.innerHTML+= `<option value='${element.sigla}' id='${element.id}'>${element.sigla}</option>`;
       });
     } catch (error) {
       console.log(error);
     }
   }
-async function buscarCidade(){
-    let ufEscolhido = estado.value;
+export async function buscarCidade(){
+  let ufEscolhido = Array.from(estado.children).find(child => child.value === estado.value).id;
     if(! ufEscolhido == 0){
     try {
       cidade.innerHTML="<option value='0' selected>Seleciona uma cidade</option>";
@@ -43,16 +46,11 @@ export async function buscarInfoPorCep(cep){
     
     logadouro.value=((logadouro.validity.valueMissing) ? json.logradouro: logadouro.value );
     bairro.value=((bairro.validity.valueMissing) ? json.bairro: bairro.value );
-    for (let index = 0; index < estado.options.length; index++) {
-      if(estado.options[index].text==json.uf){
-        estado.selectedIndex=index;
-      }
-    }
+    estado.value=json.uf
     if( cidade.value==0){
       await buscarCidade()
       cidade.value=json.localidade;
     }
-    
     }
     catch(e){
       console.log(e);

@@ -23,6 +23,21 @@ export async function redefinirSenha(redefineSenhaJson){
     } );}
 export async function existUser(email){
         return await apiClient(`/user/${email}`);}
+
+export async function buscarDadosMinhaConta(){
+   return await apiClient(`/user/myAccount`);}
+
+export async function atualizarDadosPessoaisConta(credenciais){
+    return await apiClient(`/user/updatePersonalDataAccount`, {
+        method: "PUT",
+        body:  JSON. stringify(credenciais)
+    } );}
+    
+export async function atualizarEnderecoConta(credenciais){
+    return await apiClient(`/user/updateAddressAccount`, {
+        method: "PUT",
+        body:  JSON. stringify(credenciais)
+    } );}
     
 
 

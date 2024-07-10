@@ -2,11 +2,11 @@ import {carregarTemplates} from "../adicionarTemplates.js";
 carregarTemplates();
 import {olhoSenha, verificarCampo, focus, verificarOIndiceEscolhido, verificarSenhaValido} from "../validacoes/validacoesCampos.js";
 import {mostrarImagem} from "../CapturarImagem.js";
-
-
+import { buscarPorId, atualizarEmployee, cadastrarEmployee } from "../APIs/funcionarioApi.js";
+import { buscarCidade } from "../APIs/consultarEndereco.js";
+import { alerta } from "../alert.js";
 const campos = document.querySelectorAll("[campo]");
-const alertaSucesso = document.getElementById('liveAlertPlaceholder');
-const senha = document.querySelector("[campo='senha']");
+const alert = document.getElementById('liveAlertPlaceholder');
 const formulario = document.querySelector(".formulario");
 const cpf = document.querySelector("[campo='cpf']");
 const data_nascimento = document.querySelector("[campo='data_de_nascimento']");
@@ -23,11 +23,53 @@ data_nascimento.setAttribute("max", new Date());
 let title = document.getElementById("formularioTitulo");
 const btnSubmit= document.querySelector("[type='submit']");
 const btnReset= document.querySelector("#btnCancelar");
+const urlParam = new URLSearchParams(window.location.search);
+const funcionarioId = urlParam.get('id');
+const senha = document.querySelector("[campo='senha']")
+const divLougadoro = document.getElementById("divLogadouro");
+const divSenha = document.getElementById("divSenha");
+if (funcionarioId) {
+  modoEditar(funcionarioId);
+  btnReset.addEventListener("click",()=>{   
+    editar(funcionarioId)
+    window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });})
+  divSenha.innerHTML=""
+  divSenha.classList.add("d-none")
+}
+else{
+  olhoSenha(senha)
+  divLougadoro.classList.remove("col-sm-6")
+  verificarSenhaValido(senha);
+}
 
+function cadastrarFuncionario(funcionario){
+  cadastrarEmployee(funcionario).then(response=>{
+    alerta('success', 'Funcionario cadastrado com sucesso!', alert);
+    setTimeout(()=>{window.location.href=`${window.location.href.replace("#", "")}?id=${response.id}`}, 1000)
+  }).catch(error=>{
+    alerta("danger", error, alert);
+  })
+}
 
-olhoSenha(senha);
-
- modoEditar();
+async function buscarFuncionarioPorId(id){
+  try{
+    return   await buscarPorId(id);
+  }
+  catch(error){
+    alerta("danger", error, alert);
+  }
+}
+ function atualizarFuncionario(id, funcionario){
+  atualizarEmployee(id, funcionario).then(response=>{
+    alerta("success", "Funcionário editado com sucesso", alert);}
+  ).catch(error=>{
+    alerta("danger", error, alert);
+  }
+  )
+}
 
 
 campos.forEach((campo)=>{
@@ -35,49 +77,32 @@ campos.forEach((campo)=>{
   campo.addEventListener("keyup", function(){ verificarCampo(campo)});
  });
 
-
-  
-const appendAlert= (message, type) => {
-  const wrapper = document.createElement('div')
-  wrapper.innerHTML = [
-    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
-    `   <div>${message}</div>`,
-    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
-    '</div>'
-  ].join('')
-
-  alertaSucesso.append(wrapper)
-}
-
-
   formulario.addEventListener("submit", function (event) {
     event.preventDefault();
     verificarOIndiceEscolhido();
-    if (formulario.checkValidity()) {
-        appendAlert('Nice, you triggered this alert message!', 'success');
-        modoEditar();
+    if (formulario.checkValidity() && funcionarioId) {
+         atualizarFuncionario(funcionarioId, getFuncionario());
+    }
+    else if(formulario.checkValidity()){
+      cadastrarFuncionario(getFuncionario());
     }
     else{
-      verificarSenhaValido(senha);
       formulario.classList.add("was-validated");
+      alerta('danger', 'A operação não foi realizada!', alert)
     }
+    window.location.href="#"
   });
 
-  function modoEditar(){
-    // senha =
-    // cpf = 
-    // data_nascimento = 
-    // username = 
-    // telefone = 
-    // cep = 
-    // estado = 
-    // cidade = 
-    // bairro = 
-    // logadouro = 
-    title.textContent="Editando Funcionário"
+  async function modoEditar(id){
+    editar(id)
+    title.parentElement.innerHTML=""
     email.setAttribute("disabled", "");
     btnSubmit.classList.replace("btn-outline-success","btn-outline-warning");
     btnSubmit.textContent="Editar";
+  }
+  async function editar(id){
+    const dados = await buscarFuncionarioPorId(id);
+    await setFunctionario(dados)
   }
 
   function modoExcluir(){
@@ -99,6 +124,43 @@ const appendAlert= (message, type) => {
     document.querySelector("[btnsFile]").classList.add("d-none");
   }
 
+  function getFuncionario(){
+    return {
+      name: username.value,
+      birthDay: data_nascimento.value,
+      cpf: cpf.value,
+      phone: telefone.value,
+      address: {
+        cep: cep.value,
+        state: estado.value,
+        city: cidade.value,
+        neighborhood: bairro.value,
+        propertyLocation: logadouro.value
+      },
+      user:{
+        login: email.value,
+        password: (senha) ? senha.value: null
+      }
+      
+    }
+  }
+  async function setFunctionario(dados){
+    estado.selectedIndex=0
+    cidade.value=0
+    email.value = dados.userDto.login;
+    cpf.value = dados.cpf
+    data_nascimento.value = dados.birthDay  ;
+    username.value = dados.name
+    telefone.value = dados.phone
+    cep.value = dados.address.cep
+    estado.value = dados.address.state
+    if(cidade.value==0){
+      await buscarCidade()
+      cidade.value=dados.address.city;
+    }
+    bairro.value = dados.address.neighborhood
+    logadouro.value = dados.address.propertyLocation
+  }
   
 
 

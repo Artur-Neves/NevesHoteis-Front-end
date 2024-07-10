@@ -1,4 +1,4 @@
-import { envairOuReenviarTokenEmail, verifyTokenEmail, redefinirSenha } from "./APIs/loginApi.js";
+import { envairOuReenviarTokenEmail, verifyTokenEmail, redefinirSenha } from "./APIs/userApi.js";
 import { alerta } from "./alert.js";
 import { olhoSenha, verificarCampo} from "./validacoes/validacoesCampos.js";
 const formulario = document.querySelector(".formulario");

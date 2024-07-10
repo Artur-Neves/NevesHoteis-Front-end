@@ -5,10 +5,6 @@
     --cinza-claro: #A4907C;
     --bege-claro-font: #F1DEC9;
 }
-html{
-    height: 100%;
-
-}
 a{
     text-decoration:none ;
 }
@@ -45,8 +41,8 @@ body{
     text-decoration: none;
     background-color: var(--cinza-claro);
     font-size: 1.5rem;
-    margin-bottom: 5px;
-    height: 10%;
+    margin-top: 10px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -73,6 +69,9 @@ body{
     justify-content: center;
     align-items: start;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
+}
+.offcanvas-header{
+    height: 80px;
 }
 .offcanvas__link-item:hover{
     color: gray;
@@ -140,7 +139,7 @@ body{
     font-size: 35px;
    
 }
-.imagemPerfil video, img{
+.imagemPerfil video {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -151,6 +150,9 @@ body{
 }
 .imagensHotel{
     height: 30vh ;
+}
+.page-item:hover{
+    cursor: pointer;
 }
 
 @media  screen and (min-width: 768px) {

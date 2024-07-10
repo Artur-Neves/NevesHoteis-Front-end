@@ -52,23 +52,6 @@
                 Digite um email válido           
             </div>
             </div>
-        <div class=" col-sm-6 col-12" campo-div>
-            <label for="inputPassword" class="form-label">Password</label>
-            <div class="input-group flex-nowrap">
-          <span class="input-group-text" id="inputGroup-sizing-lg"><i class="bi bi-lock-fill"></i></span>
-          <input type="password" class="rounded-2 border border-1 w-100 ps-3" placeholder="Password" aria-label="password" aria-describedby="addon-wrapping" autocomplete="current-password" required minlength="8" maxlength="24" campo="senha">
-      <span><i class="olho fs-3 bi bi-eye-fill"></i></span>
-    </div>  
-     
-        <div class="invalid-feedback">
-          <ul class="lista-requisitos-senha" >
-            <li class="requisito-senha-item">Mínimo de 8 caractéres</li>
-            <li class="requisito-senha-item">Letra máiuscula</li>
-            <li class="requisito-senha-item">Letra minuscula</li>
-            <li class="requisito-senha-item">Dígitos</li>       
-          </ul>
-      </div>
-    </div>
             <div class="col-sm-6 col-12">
               <div>
               <label for="inputUsername" class="form-label">Nome</label>
@@ -102,7 +85,7 @@
             
               <div class="col-sm-6 col-12" >
                 <label for="inputCep4" class="form-label">CEP</label>
-                <input type="text" class="form-control" id="inputCep" minlength="8" maxlength="9" required campo="cep">
+                <input type="text" class="form-control" id="inputCep" minlength="9" maxlength="9" required pattern="\d{5}-\d{3}"campo="cep">
                 <div class="invalid-feedback">
                   Digite um número de CEP válido         
               </div>
@@ -133,7 +116,7 @@
                   Nome do bairro não pode esta vazio.         
               </div>
               </div>
-              <div class="col-12" >
+              <div class=" col-sm-6 col-12" >
                 <label for="inputLogadouro" class="form-label">Lougadouro</label>
                 <input type="text" class="form-control" id="inputLogadouro"  required>
                 <div class="invalid-feedback">

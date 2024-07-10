@@ -5,22 +5,21 @@ const imgPerfil = document.querySelector("[imgPerfil]");
 // tem que de algum jeito passar o off canvas
 const inputFiles = document.querySelector("#inputFile");
 const canvas = document.querySelector("canvas");
+let campoCameraPai;
 let imagemURL = "";
 if(campoCamera){
-let campoCameraPai = campoCamera.parentElement;  }  
+campoCameraPai = campoCamera.parentElement;  }  
 if(inputFiles){
 inputFiles.addEventListener("change", mostrarImagem);
 }
 export async function pegarImagemPorCamera(){
    imgPerfil.classList.add("d-none");
    canvas.classList.add("d-none");
+   campoCamera.classList.remove("d-none");
    const iniciarFoto = await navigator.mediaDevices
    .getUserMedia({video: true, audio: false});
-   
- 
    campoCamera.srcObject = iniciarFoto;
    campoCameraPai.classList.remove("d-none");
-  
    btnsFile.classList.add("d-none");
    btnTirarFoto.classList.remove("d-none")
    btnTirarFoto.addEventListener("click", ()=>{tirarFoto();
@@ -40,14 +39,19 @@ function tirarFoto(){
 
 export function mostrarImagem(){
    if( canvas && !canvas.classList.contains("d-none")){
-   canvas.classList.add("d-none");
-   campoCameraPai.classList.remove("d-none");}
+      campoCameraPai.classList.remove("d-none");
+      canvas.classList.add("d-none");
+      campoCamera.classList.add("d-none");
+    }
    if(inputFiles.files.length==1){
       console.log(inputFiles.files[0]);
       imgPerfil.classList.remove("d-none");
       let url = URL.createObjectURL(inputFiles.files[0]);
+      console.log(imgPerfil)
       imgPerfil.setAttribute("src", url);
+      console.log(imgPerfil)
    }
+   
 }
 
 export async function mostrarMultiplasImagens(campoFiles){

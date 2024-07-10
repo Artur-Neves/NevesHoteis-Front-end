@@ -53,25 +53,7 @@
             <li class="nav-item py-lg-3">
               <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
             </li>
-            <li class="nav-item py-lg-3 dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href=""
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Minha conta
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Meus agendamentos</a></li>
-                <li><a class="dropdown-item" href="#"></a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
-            </li>
+          
             <li class="nav-item py-lg-2 d-none d-lg-flex">
               <a
                 class="nav-link fs-3 mx-2"
@@ -95,9 +77,11 @@
       aria-labelledby="offcanvasRightLabel"
     >
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasRightLabel">
-          Nome do Usuario
-        </h5>
+        <img
+              class="py-0"
+              src="./assets/img/Logo_Original-Cortado-Tamanho-Pequeno.png"
+              alt="Logo do site"
+            />
         <button
           type="button"
           class="btn-close"
@@ -106,26 +90,7 @@
         ></button>
       </div>
       <div class="offcanvas-body px-1 d-flex flex-column">
-        <div class="accordion" id="accordionExample">
-          <div class="accordion-item">
-            <h2 class="accordion-header align-items-center text-start ">
-              <button class="accordion-button collapsed offcanvas__link d-flex border border-danger flex-row m-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Minha conta
-              </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-              <div class="accordion-body p-0">
-                <ul class="menu__list ps-0 m-0  ">
-                  <li class="menu__list-item "><a href="./formularioMinhaConta.html" class="menu__list-link  offcanvas__link-item">Conta</a></li>
-                  <li class="menu__list-item"><a href="" class="menu__list-link  offcanvas__link-item">Meus agendamentos</a></li>
-                  <li class="menu__list-item"><a href="./formularioHotel.html" class="menu__list-link  offcanvas__link-item">Cadastrar hostadia</a></li>
-                  <li class="menu__list-item"><a href="" class="menu__list-link  offcanvas__link-item m-0">Itens salvos</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <a href="./cadastro.html" class="offcanvas__link">Cadastrar-se</a>
+        <a href="./login.html" class="offcanvas__link py-4">Login</a>
       </div>
     </div>
   </section>

@@ -1,6 +1,6 @@
 import { verificarCampo} from "./validacoes/validacoesCampos.js";
 import { alerta } from "./alert.js";
-import { existUser } from "./APIs/loginApi.js";
+import { existUser } from "./APIs/userApi.js";
 const formulario = document.querySelector(".formulario");
 const campo = document.querySelector("[campo='email'");
 const alert = document.getElementById("alert-erro");

@@ -1,5 +1,5 @@
 import {validarCPF} from "./validarCPF.js"
-import * as consultarEndereco from "/JS/APIs/consultarEndereco.js";
+import { buscarInfoPorCep}  from "/JS/APIs/consultarEndereco.js";
 const requisitosSenha =document.querySelectorAll(".requisito-senha-item");
 const olho = document.querySelector(".olho");
 const select = document.querySelectorAll("select");
@@ -36,6 +36,9 @@ export let focus =true;
         break;
         case "repeat__Senha":
           repeat__Senha(campo);
+        break;
+        case "telefone":
+         
         break;
 
       default:
@@ -127,7 +130,7 @@ export function verificarSenhaValido(campo) {
       return
     }
     campo.setCustomValidity("");
-    consultarEndereco.buscarInfoPorCep(value);
+   buscarInfoPorCep(value);
   }
 
   // validações select
