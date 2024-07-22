@@ -44,7 +44,14 @@
             </div>
             <div id="liveAlertPlaceholder" ></div>
             <div class="w-100 h-auto d-flex flex-column gap-4 align-items-center justify-content-center mb-5 ">
-              <div class="bg bg-secondary imagemPerfil  d-flex align-items-center justify-content-center pt-1 position-relative" ><img src="" alt="" class="d-none" imgPerfil> <i class="bi-person-circle"></i></div>
+              <div class="position-relative">
+              <div class="bg bg-secondary imagemPerfil  d-flex align-items-center justify-content-center  position-relative" >
+                <img src="" alt="" class="d-none h-100" imgPerfil> <i class="bi-person-circle " id="iconPerfil"></i> </div>
+                <span class="position-absolute btnExcluirImage translate-middle p-2 bg-danger border border-light rounded-circle d-none">
+                  <i class="bi bi-x-circle iconExcluirImage position-absolute"></i>
+                </span>             
+              </div>
+          
               <div class="d-flex w-50 px-md-5 justify-content-evenly " btnsFile>
               <label for="inputFile" class="btn btn-primary botaoCamera  d-flex align-items-center justify-content-center" id="btnEscolherImagem"><i class="bi bi-images"></i></label>
                 <input type="file" accept=".jpg, .jpeg, .png" id="inputFile" class="rounded rounded-2 d-none" multiple="false">

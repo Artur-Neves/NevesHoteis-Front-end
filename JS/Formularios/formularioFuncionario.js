@@ -1,7 +1,7 @@
 import {carregarTemplates} from "../adicionarTemplates.js";
 carregarTemplates();
 import {olhoSenha, verificarCampo, focus, verificarOIndiceEscolhido, verificarSenhaValido} from "../validacoes/validacoesCampos.js";
-import {mostrarImagem} from "../CapturarImagem.js";
+import {mostrarImagem, resetImage} from "../CapturarImagem.js";
 import { buscarPorId, atualizarEmployee, cadastrarEmployee } from "../APIs/funcionarioApi.js";
 import { buscarCidade } from "../APIs/consultarEndereco.js";
 import { alerta } from "../alert.js";
@@ -28,6 +28,9 @@ const funcionarioId = urlParam.get('id');
 const senha = document.querySelector("[campo='senha']")
 const divLougadoro = document.getElementById("divLogadouro");
 const divSenha = document.getElementById("divSenha");
+const imageEmplooye = document.getElementById("inputFile");
+const btnExcluirImage = document.querySelector(".btnExcluirImage");
+let image =null;
 if (funcionarioId) {
   modoEditar(funcionarioId);
   btnReset.addEventListener("click",()=>{   
@@ -42,8 +45,20 @@ if (funcionarioId) {
 else{
   olhoSenha(senha)
   divLougadoro.classList.remove("col-sm-6")
-  verificarSenhaValido(senha);
+  senha.addEventListener("focus", ()=>{
+    verificarSenhaValido(senha);
+  })
 }
+
+imageEmplooye.addEventListener("change", async () => {
+  image = mostrarImagem();
+});
+btnExcluirImage.addEventListener("click", ()=>{
+  resetImage();
+  image=null;
+});
+
+
 
 function cadastrarFuncionario(funcionario){
   cadastrarEmployee(funcionario).then(response=>{
@@ -125,26 +140,26 @@ campos.forEach((campo)=>{
   }
 
   function getFuncionario(){
-    return {
-      name: username.value,
-      birthDay: data_nascimento.value,
-      cpf: cpf.value,
-      phone: telefone.value,
-      address: {
-        cep: cep.value,
-        state: estado.value,
-        city: cidade.value,
-        neighborhood: bairro.value,
-        propertyLocation: logadouro.value
-      },
-      user:{
-        login: email.value,
-        password: (senha) ? senha.value: null
-      }
-      
-    }
+    const formData = new FormData();
+    if(image){
+      formData.append("profilePicture", image)}
+    formData.append("name", username.value)
+    formData.append("birthDay", data_nascimento.value)
+    formData.append("cpf", cpf.value)
+    formData.append("phone", telefone.value)
+    formData.append("address.cep", cep.value)
+    formData.append("address.state", estado.value)
+    formData.append("address.city", cidade.value)
+    formData.append("address.neighborhood", bairro.value)
+    formData.append("address.propertyLocation", logadouro.value)
+    formData.append("user.login", email.value)
+    formData.append("user.password", (senha) ? senha.value: null)
+   
+    return formData
   }
   async function setFunctionario(dados){
+    if(dados.profilePicture){
+      image =  mostrarImagem(dados.profilePicture)}
     estado.selectedIndex=0
     cidade.value=0
     email.value = dados.userDto.login;

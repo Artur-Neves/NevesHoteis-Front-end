@@ -5,14 +5,14 @@ export async function buscarTodosAdmin(size, page) {
 export async function cadastrarUsuario(credenciais) {
   return await apiClient("/admin", {
     method: "POST",
-    body: JSON.stringify(credenciais),
-  });
+    body: credenciais
+  }, true );
 }
 export async function atualizarAdmin(id, credenciais) {
   return await apiClient(`/admin/${id}`, {
     method: "PUT",
-    body: JSON.stringify(credenciais),
-  });
+    body: credenciais
+  }, true);
 }
 export async function buscarPorId(id) {
   return await apiClient(`/admin/${id}`, {});

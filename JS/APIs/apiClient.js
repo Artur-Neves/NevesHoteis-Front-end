@@ -1,10 +1,12 @@
-export async function apiClient(endpoint, options){
+export async function apiClient(endpoint,options,contentType){
     const baseUrl = 'http://localhost:8080';
     const url = `${baseUrl}${endpoint}`;
     const token =  localStorage.getItem("authToken");
-    const headers = {
-        'Content-Type': 'application/json',
-    };
+    const headers = { };
+    if(!contentType){
+        headers['Content-Type']= 'application/json'}
+
+   
     if(token){
         headers['Authorization'] = `Bearer ${token}`;
     }
@@ -16,16 +18,17 @@ export async function apiClient(endpoint, options){
     try{
         switch (response.status) {
             case 401:
-            const refreshResponse = await fetch(baseUrl+"/user/refresh", {
+                headers['Authorization']= "";
+                const refreshResponse = await fetch(`${baseUrl}/user/refresh`, {
                 method: 'POST',
-                headers: {
-                   'Content-Type': 'application/json',
-                },
+                headers: headers,
             
                 body: JSON.stringify({
                     token: localStorage.getItem("refreshToken")})
             });
+          
                 if (refreshResponse.ok) {
+                    console.log("caindo aqui")
                     const accessToken = await refreshResponse.json();
                     const token = accessToken.token;
                     localStorage.setItem("authToken", token);
@@ -37,7 +40,7 @@ export async function apiClient(endpoint, options){
             
                 }
                 else{
-                    window.location.href = "login.html";
+                  //  window.location.href = "login.html";
                 }
             break;
             case 403:

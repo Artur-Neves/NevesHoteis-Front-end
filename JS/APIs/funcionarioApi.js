@@ -5,15 +5,15 @@ export async function buscarTodosFuncionarios(size, page) {
 export async function cadastrarEmployee(credenciais) {
   return await apiClient("/employee", {
     method: "POST",
-    body: JSON.stringify(credenciais),
-  });
+    body: credenciais,
+  }, true);
 }
 export async function atualizarEmployee(id, credenciais) {
   console.log(credenciais)
   return await apiClient(`/employee/${id}`, {
     method: "PUT",
-    body: JSON.stringify(credenciais),
-  });
+    body:credenciais,
+}, true);
 }
 export async function buscarPorId(id) {
   return await apiClient(`/employee/${id}`, {});

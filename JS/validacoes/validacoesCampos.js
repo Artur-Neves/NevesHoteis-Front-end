@@ -137,6 +137,7 @@ export function verificarSenhaValido(campo) {
   export function verificarOIndiceEscolhido(){
     select.forEach((item)=>{
       if (item.value==0){
+        console.log(" ")
         item.setCustomValidity("selecione um item");
       }
       else{
@@ -175,12 +176,13 @@ export function verificarSenhaValido(campo) {
     const invalidFile = document.querySelector("#invalidFile");
     const campoWrapper = document.querySelector(".swiper-wrapper");
     let filesSelecionadas = campoWrapper.childElementCount;
-    if(filesSelecionadas>10 || filesSelecionadas<=0){
+    campo.setCustomValidity("");
+    if(filesSelecionadas>10 || filesSelecionadas<=2){
+      console.log("A cachorro")
       campo.setCustomValidity("Error");
       invalidFile.classList.add("d-flex");
     }
     else{
-      campo.setCustomValidity("");
       invalidFile.classList.remove("d-flex");
     }
 

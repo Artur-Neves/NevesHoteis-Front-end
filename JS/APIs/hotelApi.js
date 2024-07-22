@@ -5,14 +5,14 @@ export async function   buscarTodosHoteis(size, page) {
 export async function cadastrarHotel(credenciais) {
   return await apiClient("/hotel", {
     method: "POST",
-    body: JSON.stringify(credenciais),
-  });
+    body: credenciais,
+  }, true);
 }
 export async function atualizarHotel(id, credenciais) {
   return await apiClient(`/hotel/${id}`, {
     method: "PUT",
-    body: JSON.stringify(credenciais),
-  });
+    body: credenciais,
+  }, true);
 }
 export async function buscarPorId(id) {
   return await apiClient(`/hotel/${id}`, {});

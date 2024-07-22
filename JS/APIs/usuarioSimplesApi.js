@@ -6,19 +6,19 @@ export async function cadastrarUsuario(credenciais) {
   return await apiClient("/simple-user", {
     method: "POST",
     body: JSON.stringify(credenciais),
-  });
+  }, true);
 }
 export async function cadastrarSimpleUser(credenciais) {
   return await apiClient("/simple-user/create-simple", {
     method: "POST",
-    body: JSON.stringify(credenciais),
+    body: credenciais
   });
 }
 export async function atualizarUsuario(id, credenciais) {
   return await apiClient(`/simple-user/${id}`, {
     method: "PUT",
-    body: JSON.stringify(credenciais),
-  });
+    body: credenciais,
+  }, true);
 }
 export async function buscarPorId(id) {
   return await apiClient(`/simple-user/${id}`, {});

@@ -121,13 +121,13 @@ async function update() {
 }
 
 function atualizarItensDaList(){
-  mapItens.keys().forEach((item)=>{
+  for (let item of mapItens.keys()){
     document.getElementById(item).addEventListener("click", function(){
       modalRemoverText.textContent = `Ao clicar em 'confirmar' você assume a responsabilidade da exclusão do ${type} '${mapItens.get(item)}', não sendo possível reverter tal ação!`
       modalRemoverTitle.textContent = `Tem certeza que deseja excluir ${mapItens.get(item)}?`;
       idEscolhido=item
     })
-  })
+  }
 }
  async function removerEntidade(idEscolhido){
   if(idEscolhido!=0)

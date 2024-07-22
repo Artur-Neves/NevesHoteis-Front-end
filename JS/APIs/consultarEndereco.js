@@ -1,4 +1,4 @@
-
+  
 const cep = document.getElementById("inputCep");
 const estado = document.getElementById("inputEstado");
 const bairro = document.getElementById("inputBairro");

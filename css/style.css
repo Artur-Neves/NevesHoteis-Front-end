@@ -154,6 +154,32 @@ body{
 .page-item:hover{
     cursor: pointer;
 }
+.btnExcluirImage{
+    top: 20%;
+    left: 93%;
+    width: 30px;
+    height: 30px;
+    z-index: 1;
+}
+
+.btnExcluirImageHoteis{
+    top: 5%;
+    left: 97%;
+    width: 30px;
+    height: 30px;
+    z-index: 1;
+
+}
+.iconExcluirImage{
+    font-size: 30px;
+    align-items: center;
+    top: -8px;
+    left: -0.8px;
+    color: aliceblue;
+}
+.iconExcluirImage:hover{
+    cursor: pointer;
+}
 
 @media  screen and (min-width: 768px) {
     [senha]::placeholder{

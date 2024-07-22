@@ -1,6 +1,6 @@
 import {carregarTemplates} from "../adicionarTemplates.js";
 import { verificarCampo, verificarOIndiceEscolhido } from "../validacoes/validacoesCampos.js";
-import {pegarImagemPorCamera} from "../CapturarImagem.js";
+import {pegarImagemPorCamera, mostrarImagem, tirarFoto, resetImage} from "../CapturarImagem.js";
 import { buscarDadosMinhaConta, atualizarDadosPessoaisConta, atualizarEnderecoConta } from "../APIs/userApi.js";
 import { buscarCidade } from "../APIs/consultarEndereco.js";
 import { alerta } from "../alert.js";
@@ -17,6 +17,8 @@ const formularioPessoal = document.querySelector(".formularioPessoal");
 const btnsFile = document.querySelector("[btnsFile]");
 const btnAbrirCamera = document.querySelector("#btnAbrirCamera");
 const btnEscolherFoto = document.querySelector("#btnEscolherImagem"); 
+const btnFile = document.getElementById("inputFile");
+
 
 //Tabela do formulário do endereço
 const lapisEditarEndereco = document.querySelector("[lapis='Endereco']");
@@ -37,10 +39,19 @@ const estado = document.getElementById("inputEstado");
 const cidade = document.getElementById("inputCidade");
 const bairro = document.getElementById("inputBairro");
 const logadouro = document.getElementById("inputLogadouro")
+const btnTirarFoto = document.querySelector("#btnTirarFoto");
+const btnExcluirImage = document.querySelector(".btnExcluirImage");
+let image =null;
+
+btnAbrirCamera.addEventListener("click", async function (){await pegarImagemPorCamera()});
+
+btnTirarFoto.addEventListener("click", function(){ image= tirarFoto()});
 
 
-btnAbrirCamera.addEventListener("click", ()=>{pegarImagemPorCamera()});
 
+btnFile.addEventListener("change", async () => {
+    image =  mostrarImagem();
+});
 buscarDadosDaConta();
 campos.forEach(element => {
   element.addEventListener("blur", ()=>{verificarCampo(element,false);}); 
@@ -55,9 +66,14 @@ function atualizarDadosPessoaisDaConta(dados){
       behavior: 'smooth'
     })
   }).catch(erro=>{
-    alerta("danger", erro.getMessage(), alert);
+    alerta("danger", erro, alert);
   })
 } 
+btnExcluirImage.addEventListener("click", ()=>{
+  resetImage();
+  image=null;
+});
+
 
 function atualizarEnderecoDaConta(dados){
   atualizarEnderecoConta(dados).then(response=>{
@@ -67,25 +83,30 @@ function atualizarEnderecoDaConta(dados){
       behavior: 'smooth'
     })
   }).catch(erro=>{
-    alerta("danger", erro.getMessage(), alert);
+    alerta("danger", erro, alert);
   })
 } 
 
 
 
 // formulario Pessoal
-desabilitarBotoesPessoal();
+
 btnCancelarPessoal.addEventListener("click", ()=> {desabilitarBotoesPessoal(); buscarDadosDaConta();});
 lapisEditarPessoal.addEventListener("click", (event)=>{event.preventDefault();
   desabilitarCampoPessoal.removeAttribute("disabled");
   habilitarBotoesPessoal();
   })
+  btnExcluirImage.addEventListener("click", ()=>{
+    resetImage();
+    image=null;
+  });
 function desabilitarBotoesPessoal(){
     desabilitarCampoPessoal.setAttribute("disabled", "");
     lapisEditarPessoal.style.display="block";
     btnCancelarPessoal.style.display="none";
     btnSalvarPessoal.style.display="none";
     btnsFile.classList.replace("d-flex", "d-none");
+    btnExcluirImage.classList.add("d-none");
 }
 
 function habilitarBotoesPessoal(){
@@ -93,6 +114,8 @@ function habilitarBotoesPessoal(){
     btnCancelarPessoal.style.display="block";
     btnSalvarPessoal.style.display="block";
     btnsFile.classList.replace("d-none", "d-flex");
+    if(image)
+    btnExcluirImage.classList.remove("d-none");
 }
 
 
@@ -146,18 +169,22 @@ function habilitarBotoesEndereco(){
   function buscarDadosDaConta(){
     buscarDadosMinhaConta().then(response=>{
       setUser(response)
+      desabilitarBotoesPessoal();
     }).catch(erro=>{
       alerta("danger", erro.getMessage(), alert);
     })
   }
 
   function getDadosPessoais(){
-    return {
-      name: username.value,
-      birthDay: data_nascimento.value,
-      cpf: cpf.value,
-      phone: telefone.value
-    }
+    console.log(image)
+    const formData = new FormData();
+    if(image){
+      formData.append("profilePicture", image)}
+    formData.append("name", username.value)
+    formData.append("birthDay", data_nascimento.value)
+    formData.append("cpf", cpf.value)
+    formData.append("phone", telefone.value)
+    return formData
   }
 
   function getDadosEndereco(){
@@ -176,6 +203,8 @@ function habilitarBotoesEndereco(){
     }
   }
   async function setUser(dados){
+    if(dados.profilePicture){
+      image = mostrarImagem(dados.profilePicture)}
     estado.selectedIndex=0
     cidade.value=0
     email.value = dados.userDto.login;
@@ -194,8 +223,3 @@ function habilitarBotoesEndereco(){
     logadouro.value = dados.address.propertyLocation
   }
   }
-  
-
-  
-
-

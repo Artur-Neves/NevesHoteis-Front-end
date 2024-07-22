@@ -28,15 +28,16 @@ export async function buscarDadosMinhaConta(){
    return await apiClient(`/user/myAccount`);}
 
 export async function atualizarDadosPessoaisConta(credenciais){
+    console.log(credenciais )
     return await apiClient(`/user/updatePersonalDataAccount`, {
         method: "PUT",
-        body:  JSON. stringify(credenciais)
-    } );}
+        body:  credenciais
+    }, true );}
     
 export async function atualizarEnderecoConta(credenciais){
     return await apiClient(`/user/updateAddressAccount`, {
         method: "PUT",
-        body:  JSON. stringify(credenciais)
+        body:  JSON.stringify(credenciais)
     } );}
     
 
